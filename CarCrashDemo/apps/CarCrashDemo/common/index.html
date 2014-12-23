@@ -15,7 +15,16 @@
     		
     		<script src="js/jquery-1.11.2.js"></script>
     		<script src="js/jquery.mobile-1.4.5.js"></script>
+    		<script src="js/maps.js"></script>
+    		<script src="js/incidentes.js"></script> 
+    		<script src="https://maps.googleapis.com/maps/api/js" ></script>
+    		<script type="text/javascript">
+    		$(document).ready(function() {
+    	        getLocation();
+    	      });
+    		</script>
     		<script>window.$ = window.jQuery = WLJQ;</script> 
+    		
     		    	<script type="text/javascript">
     		$(
     		
@@ -76,7 +85,7 @@
     		
     			<div data-role="header">
     				<a href="#nav-panel1" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
-    				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
+    				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			
@@ -112,17 +121,43 @@
     		
     			<div data-role="header">
     				<a href="#nav-panel2" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
-    				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
+    				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			
     			<div role="main" class="ui-content">
-    				Incidentes
+    				<h3 align="center" style="margin-top: 0;">Reportar incidente</h3>
+    				<div class="ui-body ui-body-a ui-corner-all">
+    					<div id="map-canvas" style="height:250px; width:100%;"></div>
+    				</div>
+    				<br/>
+    				<div class="ui-body ui-body-a ui-corner-all">
+	    				<a href="#" onclick="getLocation();" class="ui-btn ui-corner-all">Actualizar posicion</a>
+	    				
+						<div class="ui-field-contain" style="margin-top:0 margin-bottom: 0;">
+							<select name="select-native-1" id="select-native-1">
+								<option value="0" selected="selected">Seleccionar automovil</option>
+								<option value="1">Acura</option>
+								<option value="2">Mustang</option>
+								<option value="3">Ferrari</option>
+								<option value="4">Civic</option>
+							</select>
+						</div>
+					</div>
+					<a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all">Reportar</a>
     			</div>
-    			
-    			<div data-role="footer">
-					<h3></h3>
-				</div><!-- /footer -->
+				
+				<div data-role="popup" id="popupDialog" data-dismissible="false" style="max-width:400px; margin-top: 0;">
+					<div data-role="header" data-theme="a">
+						<h1>Reportar?</h1>
+					</div>
+					<div role="main" class="ui-content">
+						<h3 class="ui-title">Esta seguro que desea reportar el siniestro?</h3>
+						<p>Esta accion enviara su ubicacion y datos a su aseguradora.</p>
+						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+						<a href="" onclick="sendIncidenteInfo();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Enviar</a>
+						</div>
+				</div>
 				
     		</div><!-- pageIncidete -->
     		
@@ -149,7 +184,7 @@
     		
     			<div data-role="header">
     				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
-    				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
+    				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			
@@ -179,7 +214,7 @@
     				<tr><td><input  id="txtVehicleType" type="text" /> </td> </tr>
     				<tr><td>Marca </td> </tr>
     				<tr><td>
-    				<input type="search"  readonly="readonly" name="search" onclick="initMarks();"  id="searchMark"/> </td> </tr>
+    				<input type="search"  readonly="readonly" name="search" onclick="initMarks();"  id="searchMark"	/> </td> </tr>
     				<tr><td>SubMarca </td> </tr>
     				<tr><td><input type="search" readonly="readonly" onclick="initSubMarks();" name="search"  id="searchSubMark"> </td> </tr>
     				<tr><td>Modelo </td> </tr>
@@ -263,6 +298,6 @@
     		
     		<script src="js/initOptions.js"></script>
     		<script src="js/main.js"></script>
-    		<script src="js/messages.js"></script>
+    		<script src="js/messages.js"></script>    		
     	</body>
 </html>
