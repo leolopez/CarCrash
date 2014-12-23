@@ -15,31 +15,119 @@
     		
     		<script src="js/jquery-1.11.2.js"></script>
     		<script src="js/jquery.mobile-1.4.5.js"></script>
-    		<script>window.$ = window.jQuery = WLJQ;</script>
+    		<script>window.$ = window.jQuery = WLJQ;</script> 
+    		    		
     	</head>
     	<body style="display: none;">
     		<!--application UI goes here-->
     		
-    		<div data-role="page">
+    		<div data-role="page" id="inicio">
+    		
+    			<div data-role="panel" id="nav-panel" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    				<div class="ui-panel-inner">
+			        	<ul data-role="listview" class="ui-listview">
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
+			        		<li class="ui-first-child">
+			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
+			        		</li>
+			        		<li>
+			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
+			        		</li>
+			        		<li>
+			        			<a href="#incidente" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Incidente</a>
+			        		</li>			
+			        	</ul>
+			        </div>
+			    </div><!-- /Panel -->
+    		
     			<div data-role="header">
-    				<h1>Page Header</h1>
+    				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
+    				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
+    				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
-    			<div data-role="content">
-    				<p>Page content goes here</p>
-    				<input type="text" />
-    				<input type="button" value="button">
+    			
+    			<div role="main" class="ui-content">
+    				Inicio
     			</div>
-    			<div data-role="footer" data-id="foo1" data-position="fixed">
-					<div data-role="navbar">
-						<ul>
-							<li><a href="#">Info</a></li>
-							<li><a href="#">Friends</a></li>
-							<li><a href="#">Albums</a></li>
-							<li><a href="#">Emails</a></li>
-						</ul>
-					</div><!-- /navbar -->
+    			
+    			<div data-role="footer">
+					<h3></h3>
 				</div><!-- /footer -->
-    		</div>
+				
+    		</div><!-- pageInicio -->
+    		
+    		<!-- ------------------------Incidentes------------------------ -->
+    		<div data-role="page" id="incidente">
+    		
+    			<div data-role="panel" id="nav-panel" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    				<div class="ui-panel-inner">
+			        	<ul data-role="listview" class="ui-listview">
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
+			        		<li class="ui-first-child">
+			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
+			        		</li>
+			        		<li>
+			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
+			        		</li>
+			        		<li>
+			        			<a href="#incidente" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Incidente</a>
+			        		</li>			
+			        	</ul>
+			        </div>
+			    </div><!-- /Panel -->
+    		
+    			<div data-role="header">
+    				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
+    				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
+    				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
+    			</div>
+    			
+    			<div role="main" class="ui-content">
+    				Incidentes
+    			</div>
+    			
+    			<div data-role="footer">
+					<h3></h3>
+				</div><!-- /footer -->
+				
+    		</div><!-- pageIncidete -->
+    		
+    		<!-- --------------------------- Perfil ------------------------- -->
+    		
+    		<div data-role="page" id="perfil">
+    		
+    			<div data-role="panel" id="nav-panel" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    				<div class="ui-panel-inner">
+			        	<ul data-role="listview" class="ui-listview">
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
+			        		<li class="ui-first-child">
+			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
+			        		</li>
+			        		<li>
+			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
+			        		</li>
+			        		<li>
+			        			<a href="#incidente" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Incidente</a>
+			        		</li>			
+			        	</ul>
+			        </div>
+			    </div><!-- /Panel -->
+    		
+    			<div data-role="header">
+    				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
+    				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
+    				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
+    			</div>
+    			
+    			<div role="main" class="ui-content">
+    				Perfil
+    			</div>
+    			
+    			<div data-role="footer">
+					<h3></h3>
+				</div><!-- /footer -->
+				
+    		</div><!-- pagePerfil -->
     		
     		<script src="js/initOptions.js"></script>
     		<script src="js/main.js"></script>
