@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vehiculo>
     <default></default>
+     <poliza></poliza>
     <placas></placas>
     <serie></serie>
     <tipoVehiculo></tipoVehiculo>

@@ -17,6 +17,7 @@
     		<script src="js/jquery.mobile-1.4.5.js"></script>
     		<script src="js/maps.js"></script>
     		<script src="js/incidentes.js"></script> 
+    			<script src="js/perfil.js"></script> 
     		<script src="https://maps.googleapis.com/maps/api/js" ></script>
     		<script type="text/javascript">
     		$(document).ready(function() {
@@ -25,41 +26,6 @@
     		</script>
     		<script>window.$ = window.jQuery = WLJQ;</script> 
     		
-    		    	<script type="text/javascript">
-    		$(
-    		
-    		function initPerfil(){
-    		$("#listCountries").hide();
-    		$("#listMarks").hide();
-    		$("#listSubMarks").hide();
-			$("#listCities").hide();
-    		}
-    		);
-    		function j(){
-    		$("#perfilCont").hide();
-    		}
-    		function jh(){
-    		$("#perfilCont").show();
-    		
-    		}
-    		function initCountries(){
-    		$("#perfilCont").hide();
-    		$("#listCountries").show();
-    		}
-    		function clearCountries(){
-    		$("#perfilCont").show();
-    		$("#listCountries").hide();
-    		$("#listCities").hide();
-    		}
-    		function initMarks(){
-    		$("#perfilCont").hide();
-    		$("#listMarks").show();
-    		}
-    		function initSubMarks(){
-    		$("#perfilCont").hide();
-    		$("#listSubMarks").show();
-    		}
-    		</script>	
     	</head>
     	<body style="display: none;">
     		<!--application UI goes here-->
@@ -155,7 +121,7 @@
 						<h3 class="ui-title">Esta seguro que desea reportar el siniestro?</h3>
 						<p>Esta accion enviara su ubicacion y datos a su aseguradora.</p>
 						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href="" onclick="sendIncidenteInfo();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Enviar</a>
+						<a href="" onclick="sendIncidenteInfo();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
 						</div>
 				</div>
 				
@@ -188,10 +154,10 @@
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			
-    			<div role="main" class="ui-content">
-    				Perfil
-    				
+    			<div role="main" class="ui-content">    				
+    				Mi Perfil.
     				<div id="perfilCont">
+    				Introduzca sus datos.
     				<table>
     				<tbody>
     				<tr><td>Nombre </td> </tr>
@@ -202,10 +168,43 @@
     				<tr><td><input id="txtLastName" type="text" /> </td> </tr>
     				<tr><td>Móvil </td> </tr>
     				<tr><td><input  id="txtCellPhone" type="text" /> </td> </tr>
-    				<tr><td>Póliza </td> </tr>
-    				<tr><td><input  id="txtPolicy" type="text" /> </td> </tr>
     				
-    				<tr><td><hr></hr> </td> </tr>
+    				<tr><td>
+    				<input onclick="initPolicy();"    id="btnPolicy" value="Agregar nueva Poliza" type="button" data-icon="plus" data-split-icon="true" /> 
+    				</td> </tr>
+    					<tr><td><hr></hr> </td> </tr>
+    			<tr><td>
+    			<table width="90%" align="center">
+    			<tr><td>
+						<ul  data-role="listview" id="listPolicy"  data-theme="g">
+	<li><a href="" onclick="initPolicy();">Póliza</a></li>
+	<li><a href="" onclick="initPolicy();">Póliza</a></li>
+	<li><a href="" onclick="initPolicy();">Póliza</a></li>
+</ul>				
+</td> </tr>
+</table>
+    				</td> </tr>    				
+    				<tr><td><br>
+    				<br></td> </tr>	 
+    				<tr><td><hr></hr> </td> </tr>   				
+    				<tr><td>Ciudad de Residencia </td> </tr>																		
+						<tr><td>
+						<input class= "ui-btn-icon-right ui-icon-home" type="search" readonly="readonly"   name="search"  id="searchCity" onclick="initCountries();"/>
+						</td> </tr>
+    				<tr><td>Empresa o Flotilla </td> </tr>
+    				<tr><td><input  id="txtEmpresa" type="text" /> </td> </tr>
+    				</tbody>
+    				</table>
+    				<br>
+    				<br>
+    				</div>
+    				<div id="policyCont">
+    				<table>
+    				<tbody>
+    				<tr><td>Póliza </td> </tr>
+    				<tr><td>
+    				<input  id="txtPolicy"  type="text"/> 
+    				</td> </tr>
     				<tr><td>Placas </td> </tr>
     				<tr><td><input  id="txtPlates" type="text" /> </td> </tr>
     				<tr><td>Serie </td> </tr>
@@ -214,20 +213,14 @@
     				<tr><td><input  id="txtVehicleType" type="text" /> </td> </tr>
     				<tr><td>Marca </td> </tr>
     				<tr><td>
-    				<input type="search"  readonly="readonly" name="search" onclick="initMarks();"  id="searchMark"	/> </td> </tr>
+    				<input type="search" data-iconpos="center"  readonly="readonly" name="search" onclick="initMarks();"  id="searchMark"/> </td> </tr>
     				<tr><td>SubMarca </td> </tr>
-    				<tr><td><input type="search" readonly="readonly" onclick="initSubMarks();" name="search"  id="searchSubMark"> </td> </tr>
+    				<tr><td><input type="search" readonly="readonly" onclick="initMarks();" name="search"  id="searchSubMark"> </td> </tr>
     				<tr><td>Modelo </td> </tr>
     				<tr><td><input  id="txtModel" type="text" /> </td> </tr>
     				<tr><td>Color </td> </tr>
     				<tr><td><input  id="txtColor" type="text" /> </td> </tr>
     				<tr><td><hr></hr> </td> </tr>
-    				<tr><td>Ciudad de Residencia </td> </tr>																		
-						<tr><td>
-						<input type="search"  readonly="readonly" name="search"  id="searchCity" onclick="initCountries();"/>
-						</td> </tr>
-    				<tr><td>Empresa o Flotilla </td> </tr>
-    				<tr><td><input  id="txtEmpresa" type="text" /> </td> </tr>
     				</tbody>
     				</table>
     				</div>
@@ -235,10 +228,10 @@
     				<table>
     				<tbody>
     				<tr><td>
-						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="" onclick="clearCountries();" >Audi</a></li>
-	<li><a href="" onclick="clearCountries();" >Audi</a></li>
-	<li><a href="" onclick="clearCountries();" >BMW</a></li>
+						<ul id="listCountriesCont" data-split-theme="s"  data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+	<li data-name="ffff"><a href="" onclick="clearCountries(this);" >Estado</a></li>	
+	<li><a href="" onclick="clearCountries(this);" >Estado1</a></li>
+	<li><a href="" onclick="clearCountries(this);" >Estado2</a></li>
 </ul>
 				</td>
 				</tr>													
@@ -250,9 +243,9 @@
     				<tbody>
     				<tr><td>
 						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="" onclick="clearCountries();">Acura</a></li>
-	<li><a href="" onclick="clearCountries();">Audi</a></li>
-	<li><a href="" onclick="clearCountries();">BMW</a></li>
+	<li><a href="" onclick="clearCities(this);">Ciudad</a></li>
+	<li><a href="" onclick="clearCities(this);">Ciudad1</a></li>
+	<li><a href="" onclick="clearCities(this);">Ciudad2</a></li>
 </ul>
 				</td>
 				</tr>													
@@ -264,9 +257,9 @@
     				<tbody>
     				<tr><td>
 						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="" onclick="jh();">Acura</a></li>
-	<li><a href="" onclick="jh();">Audi</a></li>
-	<li><a href="" onclick="jh();">BMW</a></li>
+	<li><a href="" onclick="clearMarks(this);">Marca</a></li>
+	<li><a href="" onclick="clearMarks(this);">Audi</a></li>
+	<li><a href="" onclick="clearMarks(this);">BMW</a></li>
 </ul>
 				</td>
 				</tr>												
@@ -278,9 +271,9 @@
     				<tbody>
     				<tr><td>
 						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="" onclick="jh();">Acura</a></li>
-	<li><a href="" onclick="jh();">Audi</a></li>
-	<li><a href="" onclick="jh();" >BMW</a></li>
+	<li><a href="" onclick="clearSubMarks(this);">SubMarca</a></li>
+	<li><a href="" onclick="clearSubMarks(this);">SubMarca1</a></li>
+	<li><a href="" onclick="clearSubMarks(this);" >SubMarca2</a></li>
 </ul>
 				</td>
 				</tr>												
@@ -289,7 +282,33 @@
     				</div>
     				
     			</div>
+    			<div id="dialog-confirm" style="display:none" title="Proceder Eliminación?">
+            <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esta seguro de proceder con la eliminación?</p>
+                </div>
     			
+    			<div data-role="popup" id="popupDialogMark" data-dismissible="false" style="max-width:400px; margin-top: 0;">
+					<div data-role="header" data-theme="a">
+						<h1>Confirmar?</h1>
+					</div>
+					<div role="main" class="ui-content">
+						<h3 class="ui-title">Esta seguro que desea confirmar la seleccion?</h3>
+						<p></p>
+						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+						<a href="" onclick="sendIncidenteInfo();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
+						</div>
+				</div>
+    			
+    			<div data-role="popup" id="popupDialogCity" data-dismissible="false" style="max-width:400px; margin-top: 0;">
+					<div data-role="header" data-theme="a">
+						<h1>Confirmar?</h1>
+					</div>
+					<div role="main" class="ui-content">
+						<h3 class="ui-title">Esta seguro que desea confirmar la seleccion?</h3>
+						<p></p>
+						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+						<a href="" onclick="sendIncidenteInfo();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
+						</div>
+				</div>
     			<div data-role="footer">
 					<h3></h3>
 				</div><!-- /footer -->
