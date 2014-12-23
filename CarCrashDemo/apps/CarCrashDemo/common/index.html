@@ -16,14 +16,48 @@
     		<script src="js/jquery-1.11.2.js"></script>
     		<script src="js/jquery.mobile-1.4.5.js"></script>
     		<script>window.$ = window.jQuery = WLJQ;</script> 
-    		    		
+    		    	<script type="text/javascript">
+    		$(
+    		
+    		function initPerfil(){
+    		$("#listCountries").hide();
+    		$("#listMarks").hide();
+    		$("#listSubMarks").hide();
+			$("#listCities").hide();
+    		}
+    		);
+    		function j(){
+    		$("#perfilCont").hide();
+    		}
+    		function jh(){
+    		$("#perfilCont").show();
+    		
+    		}
+    		function initCountries(){
+    		$("#perfilCont").hide();
+    		$("#listCountries").show();
+    		}
+    		function clearCountries(){
+    		$("#perfilCont").show();
+    		$("#listCountries").hide();
+    		$("#listCities").hide();
+    		}
+    		function initMarks(){
+    		$("#perfilCont").hide();
+    		$("#listMarks").show();
+    		}
+    		function initSubMarks(){
+    		$("#perfilCont").hide();
+    		$("#listSubMarks").show();
+    		}
+    		</script>	
     	</head>
     	<body style="display: none;">
     		<!--application UI goes here-->
     		
     		<div data-role="page" id="inicio">
     		
-    			<div data-role="panel" id="nav-panel" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    			<div data-role="panel" id="nav-panel1" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
 			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
@@ -41,7 +75,7 @@
 			    </div><!-- /Panel -->
     		
     			<div data-role="header">
-    				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
+    				<a href="#nav-panel1" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
@@ -59,7 +93,7 @@
     		<!-- ------------------------Incidentes------------------------ -->
     		<div data-role="page" id="incidente">
     		
-    			<div data-role="panel" id="nav-panel" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    			<div data-role="panel" id="nav-panel2" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
 			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
@@ -77,7 +111,7 @@
 			    </div><!-- /Panel -->
     		
     			<div data-role="header">
-    				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
+    				<a href="#nav-panel2" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
@@ -121,6 +155,104 @@
     			
     			<div role="main" class="ui-content">
     				Perfil
+    				
+    				<div id="perfilCont">
+    				<table>
+    				<tbody>
+    				<tr><td>Nombre </td> </tr>
+    				<tr><td> <input id="txtName" type="text" /> </td> </tr>
+    				<tr><td>Ap. Paterno </td> </tr>
+    				<tr><td><input id="txtFirstName" type="text" /></td> </tr>
+    				<tr><td>Ap. Materno </td> </tr>
+    				<tr><td><input id="txtLastName" type="text" /> </td> </tr>
+    				<tr><td>Móvil </td> </tr>
+    				<tr><td><input  id="txtCellPhone" type="text" /> </td> </tr>
+    				<tr><td>Póliza </td> </tr>
+    				<tr><td><input  id="txtPolicy" type="text" /> </td> </tr>
+    				
+    				<tr><td><hr></hr> </td> </tr>
+    				<tr><td>Placas </td> </tr>
+    				<tr><td><input  id="txtPlates" type="text" /> </td> </tr>
+    				<tr><td>Serie </td> </tr>
+    				<tr><td><input  id="txtSeries" type="text" /> </td> </tr>
+    				<tr><td>Tipo de Vehiculo </td> </tr>
+    				<tr><td><input  id="txtVehicleType" type="text" /> </td> </tr>
+    				<tr><td>Marca </td> </tr>
+    				<tr><td>
+    				<input type="search"  readonly="readonly" name="search" onclick="initMarks();"  id="searchMark"/> </td> </tr>
+    				<tr><td>SubMarca </td> </tr>
+    				<tr><td><input type="search" readonly="readonly" onclick="initSubMarks();" name="search"  id="searchSubMark"> </td> </tr>
+    				<tr><td>Modelo </td> </tr>
+    				<tr><td><input  id="txtModel" type="text" /> </td> </tr>
+    				<tr><td>Color </td> </tr>
+    				<tr><td><input  id="txtColor" type="text" /> </td> </tr>
+    				<tr><td><hr></hr> </td> </tr>
+    				<tr><td>Ciudad de Residencia </td> </tr>																		
+						<tr><td>
+						<input type="search"  readonly="readonly" name="search"  id="searchCity" onclick="initCountries();"/>
+						</td> </tr>
+    				<tr><td>Empresa o Flotilla </td> </tr>
+    				<tr><td><input  id="txtEmpresa" type="text" /> </td> </tr>
+    				</tbody>
+    				</table>
+    				</div>
+    				<div id="listCountries">
+    				<table>
+    				<tbody>
+    				<tr><td>
+						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+	<li><a href="" onclick="clearCountries();" >Audi</a></li>
+	<li><a href="" onclick="clearCountries();" >Audi</a></li>
+	<li><a href="" onclick="clearCountries();" >BMW</a></li>
+</ul>
+				</td>
+				</tr>													
+    				</tbody>
+    				</table>
+    				</div>
+    				<div id="listCities">
+    				<table>
+    				<tbody>
+    				<tr><td>
+						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+	<li><a href="" onclick="clearCountries();">Acura</a></li>
+	<li><a href="" onclick="clearCountries();">Audi</a></li>
+	<li><a href="" onclick="clearCountries();">BMW</a></li>
+</ul>
+				</td>
+				</tr>													
+    				</tbody>
+    				</table>
+    				</div>
+    				<div id="listMarks">
+    				<table>
+    				<tbody>
+    				<tr><td>
+						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+	<li><a href="" onclick="jh();">Acura</a></li>
+	<li><a href="" onclick="jh();">Audi</a></li>
+	<li><a href="" onclick="jh();">BMW</a></li>
+</ul>
+				</td>
+				</tr>												
+    				</tbody>
+    				</table>
+    				</div>
+    				<div id="listSubMarks">
+    				<table>
+    				<tbody>
+    				<tr><td>
+						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+	<li><a href="" onclick="jh();">Acura</a></li>
+	<li><a href="" onclick="jh();">Audi</a></li>
+	<li><a href="" onclick="jh();" >BMW</a></li>
+</ul>
+				</td>
+				</tr>												
+    				</tbody>
+    				</table>
+    				</div>
+    				
     			</div>
     			
     			<div data-role="footer">
