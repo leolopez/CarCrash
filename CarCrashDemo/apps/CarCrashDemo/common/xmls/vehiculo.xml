@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vehiculo>
+    <default></default>
+    <placas></placas>
+    <serie></serie>
+    <tipoVehiculo></tipoVehiculo>
+    <marca></marca>
+    <submarca></submarca>
+    <modelo></modelo>
+    <color></color>
+</vehiculo>
