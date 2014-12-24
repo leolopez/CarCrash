@@ -101,7 +101,7 @@
 		            ajax.parseXML(xml);
 		        },
 		        error: function (request,error) {
-		            alert('Network error has occurred!');
+		           
 		        }
 		    });
 		});
