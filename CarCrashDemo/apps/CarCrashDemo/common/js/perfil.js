@@ -20,6 +20,7 @@
 		}
 		
 		function initCountries(){
+			$('input[data-type="search"]').trigger("keyup");
 		$("#perfilCont").hide();
 		$("#listCountries").show();
 		}
@@ -85,7 +86,16 @@
 			$("#perfilCont").hide();
 			$("#policyCont").show();
 		}
+		 var listitem;
+		function deletePolicy(v){
+			  listitem = $(v).parent( "li" );					
+		}
 		
+		function policyDeleted(){			
+			 var item2 = $("#listPolicy").find(listitem);
+			    item2.remove();
+			    $("#listPolicy").listview("refresh");			
+		}
 		
 
 		$(document).on('pagebeforeshow','#perfil',function(e,data){    
