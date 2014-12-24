@@ -1,6 +1,5 @@
 function setMap(pLat, pLng)
 {
-	alert('lat:' + pLat + ' - ' + 'lng:' + pLng);
 	var myLatlng = new google.maps.LatLng(pLat, pLng);
     var mapOptions = {
       zoom: 18,
@@ -28,9 +27,10 @@ function getLocation() {
 //
 function onSuccess(position) {
     //Lat long will be fetched and stored in session variables
-    //These variables will be used while storing data in local database 
+    //These variables will be used while storing data in local database
     lat = position.coords.latitude;
     lng = position.coords.longitude;
+    alert('lat:' + lat + ' - ' + 'lng:' + lng);
     setMap(lat,lng);
 }
 // onError Callback receives a PositionError object
