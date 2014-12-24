@@ -69,6 +69,7 @@
         }           
 		
 		function clearSubMarks(submark){
+		
 			$("#policyCont").show();
 			$("#listSubMarks").hide();
 			$("#searchSubMark").val(""+$(submark).html());
@@ -85,3 +86,58 @@
 			$("#policyCont").show();
 		}
 		
+		
+
+		$(document).on('pagebeforeshow','#perfil',function(e,data){    
+		    $('#cars-data').empty();
+		    $.ajax({
+		        type: "POST",
+		        url: "/xmls/perfil/",
+		        dataType: "xml",
+		        data: {
+		           
+		        },
+		        success: function(xml) {
+		            ajax.parseXML(xml);
+		        },
+		        error: function (request,error) {
+		            alert('Network error has occurred!');
+		        }
+		    });
+		});
+
+		$(document).on('pagebeforeshow', '#cars',function () {
+		    $("#cars div[data-role='header'] h1").html(carObject.carName);
+		    $('#car-data').empty();
+		    $('#car-data').append('<li>Car Type:<span> ' + carObject.carName + '</span></li>');
+		    $('#car-data').append('<li>Car Country:<span> ' + carObject.carCountry + '</span></li>');        
+		    $('#car-data').append('<li>Car Description:<span> ' + carObject.description + '</span></li>');    
+		    $('#car-data').listview('refresh');   
+		    $('#car-img').attr('src' , carObject.img );    
+		    
+		});
+
+		var ajax = {  
+		    parseXML:function(result){
+		        $(result).find("car").each(function(){
+		            carObject.carName  = $(this).find('name').text();
+		            carObject.carCountry  = $(this).find('country').text();
+		            carObject.img  = $(this).find('pic').text();
+		            carObject.description  = $(this).find('description').text();
+		            
+		            $('#cars-data').append('<li><a href="#cars"><img src="' + carObject.img + '" title="sample" height="100%" width="100%"/><h3>Car type:<span> '+carObject.carName+'</span></h3><p>' + carObject.description + '</p></a></li>');
+		        });    
+		        $('#cars-data').listview('refresh');
+		        $('#index').append('<div data-role="footer" data-position="fixed"><h1>Dynamicaly added footer</h1></div> ');
+		        $('#index [data-role="content"]').append('<fieldset data-role="controlgroup"><legend>Choose:</legend><input type="radio" name="radio" id="radio1" value="1" checked="checked" /><label for="radio1">option 1</label></fieldset>');
+		        $('#index').trigger('pagecreate');
+		    }
+		}
+
+		var carObject = {
+		    carName : '',
+		    carCountry : '',
+		    img : '',
+		    description : ''    
+		}
+

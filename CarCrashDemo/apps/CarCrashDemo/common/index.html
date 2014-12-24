@@ -18,6 +18,7 @@
     		<script src="js/maps.js"></script>
     		<script src="js/incidentes.js"></script> 
     			<script src="js/perfil.js"></script> 
+    			
     		<script src="https://maps.googleapis.com/maps/api/js" ></script>
     		<script type="text/javascript">
     		$(document).ready(function() {
@@ -176,10 +177,10 @@
     			<tr><td>
     			<table width="90%" align="center">
     			<tr><td>
-						<ul  data-role="listview" id="listPolicy"  data-theme="g">
-	<li><a href="" onclick="initPolicy();">Póliza</a></li>
-	<li><a href="" onclick="initPolicy();">Póliza</a></li>
-	<li><a href="" onclick="initPolicy();">Póliza</a></li>
+						<ul  data-role="listview" id="listPolicy" data-split-icon="delete" data-split-theme="d" data-theme="g">
+	<li><a href="" onclick="initPolicy();">Póliza</a><a href="#" class="delete"></a></li>
+	<li><a href="" onclick="initPolicy();">Póliza</a><a href="#" class="delete"></a></li>
+	<li><a href="" onclick="initPolicy();">Póliza</a><a href="#" class="delete"></a></li>
 </ul>				
 </td> </tr>
 </table>
@@ -229,9 +230,9 @@
     				<tbody>
     				<tr><td>
 						<ul id="listCountriesCont" data-split-theme="s"  data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li data-name="ffff"><a href="" onclick="clearCountries(this);" >Estado</a></li>	
-	<li><a href="" onclick="clearCountries(this);" >Estado1</a></li>
-	<li><a href="" onclick="clearCountries(this);" >Estado2</a></li>
+	<li data-name="ffff"><a href="" onclick="clearCountries(this);" >Jalisco</a></li>	
+	<li><a href="" onclick="clearCountries(this);" >Guerrero</a></li>
+	<li><a href="" onclick="clearCountries(this);" >Veracruz</a></li>
 </ul>
 				</td>
 				</tr>													
@@ -243,9 +244,9 @@
     				<tbody>
     				<tr><td>
 						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="" onclick="clearCities(this);">Ciudad</a></li>
-	<li><a href="" onclick="clearCities(this);">Ciudad1</a></li>
-	<li><a href="" onclick="clearCities(this);">Ciudad2</a></li>
+	<li><a href="" onclick="clearCities(this);">Guadalajara</a></li>
+	<li><a href="" onclick="clearCities(this);">Chapala</a></li>
+	<li><a href="" onclick="clearCities(this);">Jocotepec</a></li>
 </ul>
 				</td>
 				</tr>													
@@ -257,7 +258,7 @@
     				<tbody>
     				<tr><td>
 						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="" onclick="clearMarks(this);">Marca</a></li>
+	<li><a href="" onclick="clearMarks(this);">Dodge</a></li>
 	<li><a href="" onclick="clearMarks(this);">Audi</a></li>
 	<li><a href="" onclick="clearMarks(this);">BMW</a></li>
 </ul>
@@ -279,14 +280,13 @@
 				</tr>												
     				</tbody>
     				</table>
-    				</div>
-    				
+    				</div>    				
     			</div>
-    			<div id="dialog-confirm" style="display:none" title="Proceder Eliminación?">
+    			<div id="dialog-confirm"  data-role="dialog"  style="display:none" title="Proceder Eliminación?">
             <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esta seguro de proceder con la eliminación?</p>
                 </div>
     			
-    			<div data-role="popup" id="popupDialogMark" data-dismissible="false" style="max-width:400px; margin-top: 0;">
+    			<div data-role="dialog" id="popupDialogMark" data-dismissible="false" style="max-width:400px; margin-top: 0;">
 					<div data-role="header" data-theme="a">
 						<h1>Confirmar?</h1>
 					</div>
@@ -294,7 +294,7 @@
 						<h3 class="ui-title">Esta seguro que desea confirmar la seleccion?</h3>
 						<p></p>
 						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href="" onclick="sendIncidenteInfo();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
+						<a href=""  class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
 						</div>
 				</div>
     			
@@ -306,7 +306,7 @@
 						<h3 class="ui-title">Esta seguro que desea confirmar la seleccion?</h3>
 						<p></p>
 						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href="" onclick="sendIncidenteInfo();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
+						<a href=""  class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
 						</div>
 				</div>
     			<div data-role="footer">
