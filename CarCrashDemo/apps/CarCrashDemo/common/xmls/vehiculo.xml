@@ -9,4 +9,6 @@
     <submarca></submarca>
     <modelo></modelo>
     <color></color>
+    <titular></titular>
+    <conductor></conductor>
 </vehiculo>
