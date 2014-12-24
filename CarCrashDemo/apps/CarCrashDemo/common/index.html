@@ -31,9 +31,9 @@
     	<body style="display: none;">
     		<!--application UI goes here-->
     		
-    		<div data-role="page" id="inicio">
+    		<div data-role="page" id="inicio" class="ui-page-header-fixed ui-page-footer-fixed">
     		
-    			<div data-role="panel" id="nav-panel1" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    			<div data-role="panel" id="nav-panel1" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
 			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
@@ -50,7 +50,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header">
+    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel1" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
@@ -60,16 +60,16 @@
     				Inicio
     			</div>
     			
-    			<div data-role="footer">
+    			<div data-role="footer" data-position="fixed" data-fullscreen="true">
 					<h3></h3>
 				</div><!-- /footer -->
 				
     		</div><!-- pageInicio -->
     		
     		<!-- ------------------------Incidentes------------------------ -->
-    		<div data-role="page" id="incidente">
+    		<div data-role="page" id="incidente" class="ui-page-header-fixed ui-page-footer-fixed">
     		
-    			<div data-role="panel" id="nav-panel2" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    			<div data-role="panel" id="nav-panel2" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
 			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
@@ -86,7 +86,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header">
+    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel2" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
@@ -102,7 +102,7 @@
 	    				<a href="#" onclick="getLocation();" class="ui-btn ui-corner-all">Actualizar posicion</a>
 	    				
 						<div class="ui-field-contain" style="margin-top:0 margin-bottom: 0;">
-							<select name="select-native-1" id="select-native-1">
+							<select name="selectAuto" id="selectAuto">
 								<option value="0" selected="selected">Seleccionar automovil</option>
 								<option value="1">Acura</option>
 								<option value="2">Mustang</option>
@@ -130,9 +130,9 @@
     		
     		<!-- --------------------------- Perfil ------------------------- -->
     		
-    		<div data-role="page" id="perfil">
+    		<div data-role="page" id="perfil"  class="ui-page-header-fixed ui-page-footer-fixed">
     		
-    			<div data-role="panel" id="nav-panel" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    			<div data-role="panel" id="nav-panel" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
 			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
@@ -149,7 +149,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header">
+    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
@@ -313,7 +313,7 @@
 						<a href=""  class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
 						</div>
 				</div>
-    			<div data-role="footer">
+    			<div data-role="footer" data-position="fixed" data-fullscreen="true">
 					<h3></h3>
 				</div><!-- /footer -->
 				

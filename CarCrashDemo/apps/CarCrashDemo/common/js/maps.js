@@ -1,3 +1,5 @@
+var currentLat = 0;
+var currentLng = 0;
 function setMap(pLat, pLng)
 {
 	var myLatlng = new google.maps.LatLng(pLat, pLng);
@@ -30,12 +32,25 @@ function onSuccess(position) {
     //These variables will be used while storing data in local database
     lat = position.coords.latitude;
     lng = position.coords.longitude;
-    alert('lat:' + lat + ' - ' + 'lng:' + lng);
+    currentLat = lat;
+    currentLng = lng;
     setMap(lat,lng);
 }
 // onError Callback receives a PositionError object
 //
 function onError(error) {
-    //getLocation();
-	alert('error :(');
+	switch(error.code)
+	{
+		case 1:
+			alert('El usuario no aceptó la petición de geolocalización.');
+			break;
+		
+		case 2:
+			alert('Ubicación no disponible.');
+			break;
+			
+		case 3:
+			alert('Timeout obteniendo la ubicación.');
+			break;
+	}
 }
