@@ -3,9 +3,9 @@
     <nombre></nombre>
     <paterno></paterno>
     <materno></materno>
-    <movil></movil>
-    <poliza></poliza>
+    <movil></movil>   
     <geolocalizacion></geolocalizacion>
     <ciudadresidencia></ciudadresidencia>
     <empresaflotilla></empresaflotilla>
+    <vehiculo></vehiculo>
     </perfil>
