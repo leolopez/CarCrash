@@ -157,8 +157,9 @@
     			</div>
     			
     			<div role="main" class="ui-content">    				
-    				Mi Perfil.
+    				
     				<div id="perfilCont" >
+    				Mi Perfil.
     				Introduzca sus datos.
     				<table>
     				<tbody>
@@ -178,10 +179,10 @@
     			<tr><td>
     			<table width="90%" align="center">
     			<tr><td>
-						<ul class="ui-icon-left ui-listview ui-group-theme-g" data-role="listview" id="listPolicy" data-split-icon="delete" data-split-theme="d" data-theme="g">
+						<ul class="ui-icon-left ui-icon-delete-red ui-listview ui-group-theme-g" data-role="listview" id="listPolicy" data-split-icon="delete" data-split-theme="d" data-theme="d">
 	<li><a href="" onclick="initPolicy();">Póliza</a><a href="#popupDialogEliminar" onclick="deletePolicy(this);" data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
 	<li><a href="" onclick="initPolicy();">Póliza1</a><a href="#popupDialogEliminar" onclick="deletePolicy(this);" data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
-	<li><a href="" onclick="initPolicy();">Póliza2</a><a href="#popupDialogEliminar"  onclick="deletePolicy(this);" data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
+	<li><a href="" onclick="initPolicy();">Póliza2</a><a href="#popupDialogEliminar"  onclick="deletePolicy(this);" class="ui-icon-delete-red " data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
 </ul>				
 </td> </tr>
 </table>
@@ -200,9 +201,16 @@
     				<br>
     				<br>
     				</div>
-    				<div id="policyCont">
+    				<div id="policyCont" >
+    				<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
+    				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
+    				<a href="#" class="ui-btn ui-corner-all ui-icon-gear ui-btn-icon-right ui-btn-icon-notext"></a>		
+    			</div>    			    				
+
     				<table>
     				<tbody>
+    				<tr><td><a data-icon="arrow-l" href="initPerfil();" ></a></td> </tr>
     				<tr><td>Póliza </td> </tr>
     				<tr><td>
     				<input  id="txtPolicy"  type="text"/> 
@@ -249,9 +257,9 @@
     				<tbody>
     				<tr><td>
 						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="" onclick="clearCities(this);">Guadalajara</a></li>
-	<li><a href="" onclick="clearCities(this);">Chapala</a></li>
-	<li><a href="" onclick="clearCities(this);">Jocotepec</a></li>
+	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Guadalajara</a></li>
+	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Chapala</a></li>
+	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Jocotepec</a></li>
 </ul>
 				</td>
 				</tr>													
@@ -276,10 +284,10 @@
     				<table>
     				<tbody>
     				<tr><td>
-						<ul placeholder="" data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="" onclick="clearSubMarks(this);">SubMarca</a></li>
-	<li><a href="" onclick="clearSubMarks(this);">SubMarca1</a></li>
-	<li><a href="" onclick="clearSubMarks(this);" >SubMarca2</a></li>
+						<ul  data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">SubMarca</a></li>
+	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">SubMarca1</a></li>
+	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">SubMarca2</a></li>
 </ul>
 				</td>
 				</tr>												
@@ -287,19 +295,20 @@
     				</table>
     				</div>    				
     			</div>
-    			<div id="dialog-confirm"  data-role="dialog"  style="display:none" title="Proceder Eliminación?">
-            <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Esta seguro de proceder con la eliminación?</p>
-                </div>
     			
-    			<div data-role="dialog" id="popupDialogMark" data-dismissible="false" style="max-width:400px; margin-top: 0;">
+    			
+    			<div data-role="popup" id="popupDialogMark" data-dismissible="false" style="max-width:400px; margin-top: 0;">
 					<div data-role="header" data-theme="a">
 						<h1>Confirmar?</h1>
 					</div>
 					<div role="main" class="ui-content">
-						<h3 class="ui-title">Esta seguro que desea confirmar la seleccion?</h3>
-						<p></p>
+						<h3 class="ui-title">Ha elegido lo siguiente:</h3>
+						<p>Marca: </p>
+						<p><label id="lblMarkSelected" ></label> </p>
+						<p>SubMarca: </p>
+						<p><label id="lblSubMarkSelected" ></label> </p>
 						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href=""  class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
+						<a href=""  onclick="markSelected();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">OK</a>
 						</div>
 				</div>
     			
@@ -308,10 +317,11 @@
 						<h1>Confirmar?</h1>
 					</div>
 					<div role="main" class="ui-content">
-						<h3 class="ui-title">Esta seguro que desea confirmar la seleccion?</h3>
-						<p></p>
+						<h3 class="ui-title">Ha elegido la ciudad siguiente:</h3>
+						<p><label id="lblCitySelected" ></label> </p>
+						
 						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href=""  class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
+						<a href=""  onclick="citySelected();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">OK</a>
 						</div>
 				</div>
 				<div data-role="popup" id="popupDialogEliminar" data-dismissible="false" style="max-width:400px; margin-top: 0;">
@@ -320,9 +330,10 @@
 					</div>
 					<div role="main" class="ui-content">
 						<h3 class="ui-title">Desea eliminar la poliza seleccionada?</h3>
-						<p></p>
+						<p>Datos:</p>
+						<p><label id="lblPolicySelected" ></label> </p>
 						<a href="#" id="cancelPolicy" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href="" id="yesPolicy" onclick="policyDeleted();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">ok</a>
+						<a href="" id="yesPolicy" onclick="policyDeleted();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">OK</a>
 						</div>
 				</div>
     			<div data-role="footer" data-position="fixed" data-fullscreen="true">

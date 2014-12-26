@@ -31,49 +31,30 @@
 		$("#searchCountry").val(""+$(country).html());
 		}
 		
+		var cityData;
 		function clearCities(city){
-			$("#perfilCont").show();
-			$("#listCities").hide();
-			$("#listCountries").hide();					
-			$("#searchCity").val(""+$(city).html());
+			cityData=city;	
+			$("#lblCitySelected").text(""+$(cityData).text());			
 		}
 		
 		function initMarks(){
 		$("#policyCont").hide();
 		$("#listMarks").show();
 		}
-		
+		var markData;
 		function clearMarks(mark){
 			$("#listMarks").hide();
 			$("#listSubMarks").show();
 			$("#searchMark").val(""+$(mark).html());
+			markData=mark;
 		}
 		
-		function dialogo(boton) {
-           
-            $("#dialog-confirm").dialog({
-                height: 200,
-                width: 300,
-                modal: true,
-                buttons: {
-                    "Si": function () {
-                        $(this).dialog("close");
-                        boton.click();
-                    },
-
-                    "No": function () {
-                        $(this).dialog("close");
-                    }
-                }
-            });
-          
-        }           
-		
+		         
+		var submarkData;
 		function clearSubMarks(submark){
-		
-			$("#policyCont").show();
-			$("#listSubMarks").hide();
-			$("#searchSubMark").val(""+$(submark).html());
+			submarkData=submark;
+			$("#lblMarkSelected").text(""+$(markData).text());
+			$("#lblSubMarkSelected").text(""+$(submarkData).text());
 		}
 		
 		function addPolicy(){
@@ -88,14 +69,30 @@
 		}
 		 var listitem;
 		function deletePolicy(v){
-			  listitem = $(v).parent( "li" );					
+			  listitem = $(v).parent( "li" );
+			  $("#lblPolicySelected").text(""+$(listitem).text());	
 		}
 		
 		function policyDeleted(){			
 			 var item2 = $("#listPolicy").find(listitem);
 			    item2.remove();
 			    $("#listPolicy").listview("refresh");			
+		}		
+		
+		
+		function markSelected(){			
+			$("#policyCont").show();
+			$("#listSubMarks").hide();
+			$("#searchSubMark").val(""+$(submarkData).html());
 		}
+		
+		function citySelected(){						
+				$("#perfilCont").show();
+				$("#listCities").hide();
+				$("#listCountries").hide();					
+				$("#searchCity").val(""+$(cityData).text());												
+		}
+	
 		
 
 		$(document).on('pagebeforeshow','#perfil',function(e,data){    
