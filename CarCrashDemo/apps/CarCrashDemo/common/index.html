@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html>
+<html >
     	<head>
-    		<meta charset="UTF-8">
+    		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     		<title>CarCrashDemo</title>
     		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
     		<!--
@@ -24,7 +24,8 @@
     		$(document).ready(function() {
     	        getLocation();
     	        $('a').attr('data-transition','slide');
-    	      });
+    	        
+    	      });    	          	        	      
     		</script>
     		<script>window.$ = window.jQuery = WLJQ;</script> 
     		
@@ -58,7 +59,7 @@
     			</div>
     			
     			<div role="main" class="ui-content">
-    				Inicio
+    				Inicio 
     			</div>
     			
     			<div data-role="footer" data-position="fixed" data-fullscreen="true">
@@ -138,7 +139,7 @@
 			        	<ul data-role="listview" class="ui-listview">
 			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
 			        		<li class="ui-first-child">
-			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
+			        			<a href="#inicio"  class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
 			        		</li>
 			        		<li>
 			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
@@ -153,12 +154,12 @@
     			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
-    				<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
+    				<a  href=""   class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true" class=" ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			
     			<div role="main" class="ui-content">    				
     				
-    				<div id="perfilCont" >
+    				<div id="perfilCont" >    				
     				<p> Mi Perfil. </p>    				
     				<p>Introduzca sus datos.</p>
     				<table>
@@ -171,18 +172,22 @@
     				<tr><td><input id="txtLastName" type="text" /> </td> </tr>
     				<tr><td>Celular </td> </tr>
     				<tr><td><input  id="txtCellPhone" type="text" /> </td> </tr>
-    				<tr><td>Mis pólizas de Auto </td> </tr>
+    				<tr><td>Mis polizas de Auto </td> </tr>
     				<tr><td>
-    				<input onclick="initPolicy();"    id="btnPolicy" value="Añadir Poliza" type="button" data-icon="plus" data-split-icon="true" /> 
+    				<input onclick="initPolicy();"    id="btnPolicy" value="Agregar Poliza" type="button" data-icon="plus" data-split-icon="true" /> 
     				</td> </tr>
     					<tr><td><hr></hr> </td> </tr>
     			<tr><td>
     			<table width="90%" align="center">
     			<tr><td>
+    			
 						<ul class="ui-icon-left ui-icon-delete-red ui-listview ui-group-theme-g" data-role="listview" id="listPolicy" data-split-icon="delete" data-split-theme="d" data-theme="d">
-	<li><a href="" onclick="initPolicy();">Póliza</a><a href="#popupDialogEliminar" onclick="deletePolicy(this);" data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
-	<li><a href="" onclick="initPolicy();">Póliza1</a><a href="#popupDialogEliminar" onclick="deletePolicy(this);" data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
-	<li><a href="" onclick="initPolicy();">Póliza2</a><a href="#popupDialogEliminar"  onclick="deletePolicy(this);" class="ui-icon-delete-red " data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
+	<li><a href="" onclick="initPolicy();">3GCEC28K4WG132181
+</a><a href="#popupDialogEliminar" onclick="deletePolicy(this);" data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
+	<li><a href="" onclick="initPolicy();">3VWS1E1B9WM-505430
+</a><a href="#popupDialogEliminar" onclick="deletePolicy(this);" data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
+	<li><a href="" onclick="initPolicy();">8GGTFRC122A111575
+</a><a href="#popupDialogEliminar"  onclick="deletePolicy(this);" class="ui-icon-delete-red " data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>
 </ul>				
 </td> </tr>
 </table>
@@ -201,11 +206,11 @@
     				<br>
     				<br>
     				</div>
-    				<div id="policyCont" data-role="page">    				   			    				
+    				<div id="policyCont">    				   			    				
     				<table>
     				<tbody>
     				<tr><td><a data-icon="arrow-l" href="initPerfil();" ></a></td> </tr>
-    				<tr><td>Póliza </td> </tr>
+    				<tr><td>Poliza </td> </tr>
     				<tr><td>
     				<input  id="txtPolicy"  type="text"/> 
     				</td> </tr>
@@ -252,8 +257,8 @@
     				<tr><td>
 						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
 	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Guadalajara</a></li>
-	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Chapala</a></li>
-	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Jocotepec</a></li>
+	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Acapulco</a></li>
+	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Boca del Rio</a></li>
 </ul>
 				</td>
 				</tr>													
@@ -279,9 +284,9 @@
     				<tbody>
     				<tr><td>
 						<ul  data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
-	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">SubMarca</a></li>
-	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">SubMarca1</a></li>
-	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">SubMarca2</a></li>
+	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">DURANGO SXT</a></li>
+	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">A4</a></li>
+	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">BMW i</a></li>
 </ul>
 				</td>
 				</tr>												

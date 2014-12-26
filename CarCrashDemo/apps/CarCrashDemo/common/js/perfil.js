@@ -93,8 +93,35 @@
 				$("#searchCity").val(""+$(cityData).text());												
 		}
 	
-		
+		function savePerfil(){						
+					
+									
+	}
+		function savePolicy(){						
+			
+			 var newAmount = "2";
 
+		    if(newAmount != '') {
+		        $('#listPolicy').append('<li class="ui-li-has-alt"><a href="" data-transition="slide" class="ui-btn" onclick="initPolicy();">Poliza1</a>'+
+		        		 '<a href="#popupDialogEliminar" class="ui-icon-delete-red ui-btn ui-btn-icon-notext ui-icon-delete ui-btn-d" '+
+		        		 ' aria-haspopup="true" aria-owns="popupDialogEliminar"  aria-expanded="false" onclick="deletePolicy(this);" '+
+		        		 ' data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>').listview('refresh');
+		        
+		    } else {
+		        alert('Nothing to add');   
+		    }
+	}
+		function citySelected(){						
+			$("#perfilCont").show();
+			$("#listCities").hide();
+			$("#listCountries").hide();					
+			$("#searchCity").val(""+$(cityData).text());												
+	}
+		
+	
+		
+		
+		
 		$(document).on('pagebeforeshow','#perfil',function(e,data){    
 		    $('#cars-data').empty();
 		    $.ajax({
@@ -147,4 +174,5 @@
 		    img : '',
 		    description : ''    
 		}
-
+		
+		
