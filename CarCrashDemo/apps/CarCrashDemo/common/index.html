@@ -154,7 +154,8 @@
     			<div data-role="header"  data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
-    				<a  href=""   class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true" class=" ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
+    				<a    href="#popupDialogPolicy"  data-rel="popup" data-position-to="window"
+				 data-transition="pop"  onclick="saveAnyPerfil();" class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true" class=" ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			<div id="backPerfilNav" data-role="header" data-tap-toggle="false" data-fullscreen="true" data-position="relative">
         <a href=""  onclick="backPerfil();" class="ui-btn ui-btn-icon-left ui-icon-arrow-l ui-btn-icon-notext">&nbsp;</a>         
@@ -317,7 +318,14 @@
     				</table>
     				</div>
     				
-    				</div>    				
+    				</div>  
+    				
+    				<ul>
+				<li>
+				<a id='lnkDialog' href="#popupDialogPolicy"  data-rel="popup" data-position-to="window"
+				 data-transition="pop" ></a>
+				 </li>
+				</ul>  				
     			</div>
     			
     			
@@ -357,9 +365,33 @@
 						<p>Datos:</p>
 						<p><label id="lblPolicySelected" ></label> </p>
 						<a href="#" id="cancelPolicy" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href="" id="yesPolicy" onclick="policyDeleted();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">OK</a>
+						<a href="#popupDialogPolicyDel"  data-rel="back" data-position-to="window"
+				 data-transition="pop" id="yesPolicy" onclick="policyDeleted();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" >OK</a>
 						</div>
 				</div>
+				<div data-role="popup" id="popupDialogPolicy" data-dismissible="false" style="max-width:400px; margin-top: 0;">
+					<div data-role="header" data-theme="a">
+						<h1>Informacion</h1>
+					</div>
+					<div role="main" class="ui-content">
+						<h3 class="ui-title">Datos guardados con exito.</h3>						
+						<div class="ui-body">
+						<a  href="" id="policySaved" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">OK</a>
+						</div>
+						</div>
+				</div>
+				<div data-role="popup" id="popupDialogPolicyDel" data-dismissible="false" style="max-width:400px; margin-top: 0;">
+					<div data-role="header" data-theme="a">
+						<h1>Informacion</h1>
+					</div>
+					<div role="main" class="ui-content">
+						<h3 class="ui-title">Poliza eliminada con exito.</h3>						
+						<div class="ui-body">
+						<a  href="" id="policydel" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" >OK</a>
+						</div>
+						</div>
+				</div>
+				
     			<div data-role="footer" data-position="fixed" data-fullscreen="true">
 					<h3></h3>
 				</div><!-- /footer -->

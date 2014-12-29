@@ -10,7 +10,7 @@
 		
 		}
 		);
-var navigation=0;
+		var navigation=0;
 		function j(){
 		$("#perfilCont").hide();
 		}
@@ -107,14 +107,34 @@ var navigation=0;
 	
 		function savePerfil(){						
 					
-									
-	}
+			
+		}
+		function saveAnyPerfil(){						
+			switch(navigation){
+			case 0:						
+				 savePerfil();
+			break;
+			case 1:						
+				savePolicy();
+				break;				
+			}			
+		}
 		function savePolicy(){						
+			$("#txtPolicy");
+		var serie=	$("#txtSeries");
+			$("#txtPlates");
+			$("#txtVehicleType");
+			$("#searchMark");
+			$("#searchSubMark");
+			$("#txtModel");
+			$("#txtColor");
+			$("#txtHolder");
+			$("#txtConductor");
 			
 			 var newAmount = "2";
 
 		    if(newAmount != '') {
-		        $('#listPolicy').append('<li class="ui-li-has-alt"><a href="" data-transition="slide" class="ui-btn" onclick="initPolicy();">Poliza1</a>'+
+		        $('#listPolicy').append('<li class="ui-li-has-alt"><a href="" data-transition="slide" class="ui-btn" onclick="initPolicy();">'+serie.val()+'</a>'+
 		        		 '<a href="#popupDialogEliminar" class="ui-icon-delete-red ui-btn ui-btn-icon-notext ui-icon-delete ui-btn-d" '+
 		        		 ' aria-haspopup="true" aria-owns="popupDialogEliminar"  aria-expanded="false" onclick="deletePolicy(this);" '+
 		        		 ' data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>').listview('refresh');
@@ -122,14 +142,18 @@ var navigation=0;
 		    } else {
 		        alert('Nothing to add');   
 		    }
-	}
+		    
+		     
+		}
+		
+		
 		function citySelected(){						
 			$("#perfilCont").show();
 			$("#listCities").hide();
 			$("#listCountries").hide();					
 			$("#searchCity").val(""+$(cityData).text());
 			navigation=0;
-	}
+		}
 		function backPerfilMarks(){
 			$("#listMarks").hide();
 			$("#policyCont").show();		
