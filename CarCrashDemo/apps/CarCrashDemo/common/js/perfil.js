@@ -7,9 +7,10 @@
 		$("#listSubMarks").hide();
 		$("#listCities").hide();
 		$("#policyCont").hide();
+		
 		}
 		);
-
+var navigation=0;
 		function j(){
 		$("#perfilCont").hide();
 		}
@@ -35,12 +36,13 @@
 		function initCountries(){	
 		$("#perfilCont").hide();
 		$("#listCountries").show();
+		navigation=4;
 		}
 		
 		function clearCountries(country){
 		$("#listCities").show();
-		$("#listCountries").hide();
-		$("#searchCountry").val(""+$(country).html());
+		$("#listCountries").hide();		
+		navigation=5;
 		}
 		
 		var cityData;
@@ -52,13 +54,14 @@
 		function initMarks(){
 		$("#policyCont").hide();
 		$("#listMarks").show();
+		navigation=2;
 		}
 		var markData;
 		function clearMarks(mark){
 			$("#listMarks").hide();
-			$("#listSubMarks").show();
-			$("#searchMark").val(""+$(mark).html());
+			$("#listSubMarks").show();			
 			markData=mark;
+			navigation=3;
 		}
 		
 		         
@@ -78,6 +81,7 @@
 		function initPolicy(){
 			$("#perfilCont").hide();
 			$("#policyCont").show();
+			navigation=1;
 		}
 		 var listitem;
 		function deletePolicy(v){
@@ -96,14 +100,10 @@
 			$("#policyCont").show();
 			$("#listSubMarks").hide();
 			$("#searchSubMark").val(""+$(submarkData).html());
-		}
+			$("#searchMark").val(""+$(markData).html());
+			navigation=1;
+		}		
 		
-		function citySelected(){						
-				$("#perfilCont").show();
-				$("#listCities").hide();
-				$("#listCountries").hide();					
-				$("#searchCity").val(""+$(cityData).text());												
-		}
 	
 		function savePerfil(){						
 					
@@ -127,7 +127,8 @@
 			$("#perfilCont").show();
 			$("#listCities").hide();
 			$("#listCountries").hide();					
-			$("#searchCity").val(""+$(cityData).text());												
+			$("#searchCity").val(""+$(cityData).text());
+			navigation=0;
 	}
 		function backPerfilMarks(){
 			$("#listMarks").hide();
@@ -139,11 +140,33 @@
 			$("#listMarks").show();
 		}
 		
-		
-		
-	
-		
-		
-		
-		
+		function backPerfil(){
+			
+			switch(navigation){
+			case 0:						
+				initPerfil();	
+			break;
+			case 1:
+				backPerfilCont();				
+				navigation=0;
+			break;
+			case 2:				
+				 backPerfilMarks();
+				 navigation=1;
+			break;
+			case 3:				
+				backPerfilSubMarks();
+				navigation=2;
+			break;
+			case 4:				
+				backPerfilCountries();
+				navigation=0;
+			break;
+			case 5:					
+				 backPerfilCities();
+				 navigation=4;
+			break;	
+			}
+		}						
+							
 		
