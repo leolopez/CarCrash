@@ -151,7 +151,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    			<div data-role="header"  data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a  href=""   class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true" class=" ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
@@ -159,10 +159,11 @@
     			
     			<div role="main" class="ui-content">    				
     				
-    				<div id="perfilCont" >    				
+    				<div id="perfilCont" class="ui-body ui-body-a ui-corner-all">    				
     				<p> Mi Perfil. </p>    				
     				<p>Introduzca sus datos.</p>
-    				<table>
+    			  
+    				<table >
     				<tbody>
     				<tr><td>Nombre </td> </tr>
     				<tr><td> <input id="txtName" type="text" /> </td> </tr>
@@ -178,7 +179,7 @@
     				</td> </tr>
     					<tr><td><hr></hr> </td> </tr>
     			<tr><td>
-    			<table width="90%" align="center">
+    			<table  class="ui-body">
     			<tr><td>
     			
 						<ul class="ui-icon-left ui-icon-delete-red ui-listview ui-group-theme-g" data-role="listview" id="listPolicy" data-split-icon="delete" data-split-theme="d" data-theme="d">
@@ -194,7 +195,8 @@
     				</td> </tr>    				
     				<tr><td><br>
     				<br></td> </tr>	 
-    				<tr><td><hr></hr> </td> </tr>   				
+    				<tr><td><hr></hr> </td> </tr>  
+    							
     				<tr><td>Ciudad de Residencia </td> </tr>																		
 						<tr><td>
 						<input value="" class= "ui-icon-right" type="search" readonly="readonly"   name="search"  id="searchCity" onclick="initCountries();"/>
@@ -206,10 +208,12 @@
     				<br>
     				<br>
     				</div>
-    				<div id="policyCont">    				   			    				
-    				<table>
+    				<div id="policyCont"  >    				   			    				
+    				
+<div class="ui-body ui-body-a ui-corner-all">
+    				<table >
     				<tbody>
-    				<tr><td><a data-icon="arrow-l" href="initPerfil();" ></a></td> </tr>
+    				
     				<tr><td>Poliza </td> </tr>
     				<tr><td>
     				<input  id="txtPolicy"  type="text"/> 
@@ -237,11 +241,15 @@
     				</tbody>
     				</table>
     				</div>
-    				<div id="listCountries">
-    				<table>
+    				
+    				</div>
+    				<div id="listCountries" >
+    				
+<div class="ui-body ui-body-a ui-corner-all">
+    				<table class="ui-body">
     				<tbody>
     				<tr><td>
-						<ul id="listCountriesCont" data-split-theme="s"  data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+						<ul data-filter-placeholder="" id="listCountriesCont" data-split-theme="s"  data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
 	<li data-name="ffff"><a href="" onclick="clearCountries(this);" >Jalisco</a></li>	
 	<li><a href="" onclick="clearCountries(this);" >Guerrero</a></li>
 	<li><a href="" onclick="clearCountries(this);" >Veracruz</a></li>
@@ -251,11 +259,15 @@
     				</tbody>
     				</table>
     				</div>
-    				<div id="listCities">
-    				<table>
+    				
+    				</div>
+    				<div id="listCities" >
+    				
+<div class="ui-body ui-body-a ui-corner-all">
+    				<table class="ui-body" >
     				<tbody>
     				<tr><td>
-						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+						<ul data-filter-placeholder="" data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
 	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Guadalajara</a></li>
 	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Acapulco</a></li>
 	<li><a href="#popupDialogCity" onclick="clearCities(this);"  data-rel="popup" data-position-to="window" data-transition="pop">Boca del Rio</a></li>
@@ -265,11 +277,15 @@
     				</tbody>
     				</table>
     				</div>
-    				<div id="listMarks">
-    				<table>
+    				
+    				</div>
+    				<div id="listMarks" >
+    			
+<div class="ui-body ui-body-a ui-corner-all">
+    				<table class="ui-body">
     				<tbody>
     				<tr><td>
-						<ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+						<ul data-filter-placeholder="" data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
 	<li><a href="" onclick="clearMarks(this);">Dodge</a></li>
 	<li><a href="" onclick="clearMarks(this);">Audi</a></li>
 	<li><a href="" onclick="clearMarks(this);">BMW</a></li>
@@ -279,11 +295,15 @@
     				</tbody>
     				</table>
     				</div>
-    				<div id="listSubMarks">
-    				<table>
+    				
+    				</div>
+    				<div id="listSubMarks" >
+    				
+<div class="ui-body ui-body-a ui-corner-all">
+    				<table class="ui-body">
     				<tbody>
     				<tr><td>
-						<ul  data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
+						<ul data-filter-placeholder=""  data-role="listview" data-filter="true" data-autodividers="true"  data-theme="g">
 	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">DURANGO SXT</a></li>
 	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">A4</a></li>
 	<li><a href="#popupDialogMark" onclick="clearSubMarks(this);"  data-rel="popup" data-position-to="window" data-transition="pop">BMW i</a></li>
@@ -292,6 +312,8 @@
 				</tr>												
     				</tbody>
     				</table>
+    				</div>
+    				
     				</div>    				
     			</div>
     			

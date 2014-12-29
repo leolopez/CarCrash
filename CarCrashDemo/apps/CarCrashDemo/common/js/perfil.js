@@ -14,13 +14,25 @@
 		$("#perfilCont").hide();
 		}
 		
-		function jh(){
-		$("#perfilCont").show();
-		
+		function backPerfilCont(){
+			$("#policyCont").hide();
+		$("#perfilCont").show();		
+		}
+		function backPerfilCountries(){
+			$("#listCountries").hide();
+			$("#perfilCont").show();		
 		}
 		
-		function initCountries(){
-			$('input[data-type="search"]').trigger("keyup");
+		function backPerfilCities(){
+			$("#listCities").hide();
+			$("#listCountries").show();
+		}
+		function backPerfilCountries(){
+			$("#listCountries").hide();
+			$("#perfilCont").show();		
+		}
+		
+		function initCountries(){	
 		$("#perfilCont").hide();
 		$("#listCountries").show();
 		}
@@ -117,6 +129,17 @@
 			$("#listCountries").hide();					
 			$("#searchCity").val(""+$(cityData).text());												
 	}
+		function backPerfilMarks(){
+			$("#listMarks").hide();
+			$("#policyCont").show();		
+		}
+		
+		function backPerfilSubMarks(){
+			$("#listSubMarks").hide();
+			$("#listMarks").show();
+		}
+		
+		
 		
 	
 		
