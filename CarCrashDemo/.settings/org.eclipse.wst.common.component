@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="CarCrashDemo">
         <wb-resource deploy-path="/" source-path="/apps/CarCrashDemo/common"/>
+        <wb-resource deploy-path="/" source-path="/apps/CarCrashDemo/android"/>
+        <wb-resource deploy-path="/" source-path="/apps/CarCrashDemo/iphone"/>
+        <wb-resource deploy-path="/" source-path="/server/lib"/>
+        <wb-resource deploy-path="/" source-path="/server/java"/>
         <property name="context-root" value="CarCrashDemo"/>
     </wb-module>
 </project-modules>
