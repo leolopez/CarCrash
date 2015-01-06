@@ -7,10 +7,19 @@
 		$("#listSubMarks").hide();
 		$("#listCities").hide();
 		$("#policyCont").hide();
-		
+				
+		   
 		}
 		);
+		
+		function policiesAlert(){
+			
+			
+				alert('La poliza 3GCEC28K4WG132181 esta por caducar.');
+		}
+		
 		var navigation=0;
+		var selectedPolizaData;
 		function j(){
 		$("#perfilCont").hide();
 		}
@@ -78,10 +87,15 @@
 			$("#listPolicy").append(listItem);
 			
 		}
-		function initPolicy(){
+		function initPolicy(v){
+			var  listitem = $(v).parent( "li" );	
+			
+			selectedPolizaData=$(listitem).text();
+			loadSelectedVehicle("true");
 			$("#perfilCont").hide();
 			$("#policyCont").show();
 			navigation=1;
+			
 		}
 		 var listitem;
 		function deletePolicy(v){
@@ -92,8 +106,10 @@
 		function policyDeleted(){			
 			 var item2 = $("#listPolicy").find(listitem);
 			    item2.remove();
+			   
 			    $("#listPolicy").listview("refresh");			
 		}		
+		
 		
 		
 		function markSelected(){			
@@ -103,10 +119,125 @@
 			$("#searchMark").val(""+$(markData).html());
 			navigation=1;
 		}		
+		$(document).on('pagebeforeshow','#perfil',function(e,data){    
+		    
 		
+		    $.ajax({
+		        type: "get",
+		        url: "xmls/perfil.xml",
+		        dataType: "xml",
+		        data: {
+		           
+		        },
+		        success: function(data) {
+		            ajax.parseXML(data);
+		        },
+		        error: function (request,error) {
+		        	alert(''+error);
+		        }
+		    });
+		});
 	
+		var ajax = {  
+			    parseXML:function(result){			    				  			    				    				    	
+			    	 			    	
+			        $(result).find("perfil").each(function(){
+			        	$("#txtName").val($(this).find('nombre').text());
+			        	$("#txtFirstName").val($(this).find('paterno').text());
+			        	$("#txtLastName").val($(this).find('materno').text());
+			        	$("#txtCellPhone").val($(this).find('movil').text());
+			        	$("#searchCity").val($(this).find('ciudadresidencia').text());
+			        	$("#txtEmpresa").val($(this).find('empresaflotilla').text());			        	
+			        	
+			        	var myXML = ""
+			        		var request = new XMLHttpRequest();
+			        		request.open("GET", "xmls/perfil.xml", true);
+			        		request.onreadystatechange = function(){
+			        		    if (request.readyState == 4) {
+			        		        if (request.status == 200 || request.status == 0) {
+			        		            myXML = request.responseXML;
+			        		        }
+			        		    }
+			        		}
+			        	
+			        	request.send();
+			        });  
+			       
+			    }
+			};
+
+		var ajaxVehicle = {  
+			    parseXML:function(result){
+			    	$("#txtPolicy").val('');
+		        	$("#txtSeries").val('');
+		        	$("#txtPlates").val('');
+		        	$("#txtVehicleType").val('');
+		        	$("#searchMark").val('');
+		        	$("#searchSubMark").val('');			        	
+		        	$("#txtModel").val('');
+		    		$("#txtColor").val('');
+		    		$("#txtHolder").val('');
+		    		$("#txtConductor").val('');			    		
+			    	
+			        $(result).find("vehiculo").each(function(){
+			        	var selected= $(this).find('serie').text()== selectedPolizaData.trim();
+			        	if(selected){
+			        	$("#txtPolicy").val($(this).find('poliza').text());
+			        	$("#txtSeries").val($(this).find('serie').text());
+			        	$("#txtPlates").val($(this).find('placas').text());
+			        	$("#txtVehicleType").val($(this).find('tipoVehiculo').text());
+			        	$("#searchMark").val($(this).find('marca').text());
+			        	$("#searchSubMark").val($(this).find('submarca').text());			        	
+			        	$("#txtModel").val($(this).find('modelo').text());
+			    		$("#txtColor").val($(this).find('color').text());
+			    		$("#txtHolder").val($(this).find('titular').text());
+			    		$("#txtConductor").val($(this).find('conductor').text());	  
+			        }
+
+			        });    
+			      
+			    }
+			};
+		
+		var ajaxFillVehicleslist = {  
+			    parseXML:function(result){			    		    		
+			    	
+			        $(result).find("vehiculo").each(function(){			        	
+			        	
+			        	$("#txtSeries").val($(this).find('serie').text());			        	
+			        	addPolicyToList($(this).find('serie'));
+			        });    
+			      
+			    }
+			};
+		
+		function loadSelectedVehicle(condition){
+			 $.ajax({
+			        type: "get",
+			        url: "xmls/vehiculo.xml",
+			        dataType: "xml",
+			        data: {
+			           
+			        },
+			        success: function(data) {
+			        
+			        	ajaxVehicle.parseXML(data);
+			        
+			        },
+			        error: function (request,error) {
+			        	alert(''+error);
+			        }
+			    });
+			
+		}
+		
 		function savePerfil(){						
-					
+			var name=	$("#txtName");
+			var firstName=	$("#txtFirstName");
+			var lastName=	$("#txtLastName");
+			var cellPhone=$("#txtCellPhone");
+			var serachCity=$("#searchCity");
+			var empresa=$("#txtEmpresa");						
 			
 		}
 		function saveAnyPerfil(){						
@@ -120,32 +251,35 @@
 			}			
 		}
 		function savePolicy(){						
-			$("#txtPolicy");
+			var policy=	$("#txtPolicy");
 		var serie=	$("#txtSeries");
-			$("#txtPlates");
-			$("#txtVehicleType");
-			$("#searchMark");
-			$("#searchSubMark");
-			$("#txtModel");
-			$("#txtColor");
-			$("#txtHolder");
-			$("#txtConductor");
-			
+		var plates=	$("#txtPlates");
+		var vehicleType=$("#txtVehicleType");
+		var mark=$("#searchMark");
+		var subMark=$("#searchSubMark");
+		var model=$("#txtModel");
+		var color=$("#txtColor");
+		var holder=$("#txtHolder");
+		var conductor=$("#txtConductor");
+		
 			 var newAmount = "2";
 
 		    if(newAmount != '') {
-		        $('#listPolicy').append('<li class="ui-li-has-alt"><a href="" data-transition="slide" class="ui-btn" onclick="initPolicy();">'+serie.val()+'</a>'+
-		        		 '<a href="#popupDialogEliminar" class="ui-icon-delete-red ui-btn ui-btn-icon-notext ui-icon-delete ui-btn-d" '+
-		        		 ' aria-haspopup="true" aria-owns="popupDialogEliminar"  aria-expanded="false" onclick="deletePolicy(this);" '+
-		        		 ' data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>').listview('refresh');
-		        
+		    	addPolicyToList(serie);		    
 		    } else {
 		        alert('Nothing to add');   
 		    }
 		    
-		     
+		   
 		}
-		
+		function addPolicyToList(serie){
+			
+			$('#listPolicy').append('<li class="ui-li-has-alt"><a href="" data-transition="slide" class="ui-btn" onclick="initPolicy();">'+serie.val().trim()+'</a>'+
+	        		 '<a href="#popupDialogEliminar" class="ui-icon-delete-red ui-btn ui-btn-icon-notext ui-icon-delete ui-btn-d" '+
+	        		 ' aria-haspopup="true" aria-owns="popupDialogEliminar"  aria-expanded="false" onclick="deletePolicy(this);" '+
+	        		 ' data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>').listview('refresh');
+	        
+		}
 		
 		function citySelected(){						
 			$("#perfilCont").show();
@@ -191,6 +325,37 @@
 				 navigation=4;
 			break;	
 			}
-		}						
-							
+		}
+		
+		function test(){    
+			
+		}
+		
+		function fillVehiclesListView(){
+								
+		}
+		  function getTest() {
+              var invocationData = {
+                      adapter : 'testXML',
+                      procedure : 'CreateXML',
+                      invocationContext: {}
+                  };
+
+              WL.Client.invokeProcedure(invocationData,{
+                  onSuccess : successHandler,
+                  onFailure : failureHandler,
+              });
+          }					
+          
+          function successHandler(result)
+          {
+          WL.Logger.debug("Retrieve success" +  JSON.stringify(result));
+          alert('res '+result.invocationResult.result);  
+          }
+          
+          function failureHandler(result)
+          {
+          	alert(result.errorMsg);
+          }	
+		
 		

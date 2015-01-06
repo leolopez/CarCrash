@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vehiculo>
     <default></default>
-     <poliza></poliza>
+     <poliza>gt</poliza>
     <placas></placas>
-    <serie></serie>
+    <serie>3GCEC28K4WG132181</serie>
     <tipoVehiculo></tipoVehiculo>
     <marca></marca>
     <submarca></submarca>

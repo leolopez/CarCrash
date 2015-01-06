@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <perfil>
-    <nombre></nombre>
-    <paterno></paterno>
-    <materno></materno>
-    <movil></movil>   
+    <nombre>leodegario</nombre>
+    <paterno>lopez</paterno>
+    <materno>ramirez</materno>
+    <movil>3310249732</movil>   
     <geolocalizacion></geolocalizacion>
-    <ciudadresidencia></ciudadresidencia>
-    <empresaflotilla></empresaflotilla>
+    <ciudadresidencia>Guadalajara</ciudadresidencia>
+    <empresaflotilla>Solutia</empresaflotilla>
     <vehiculo></vehiculo>
     </perfil>
