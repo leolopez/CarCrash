@@ -38,71 +38,53 @@
     		
     			<div data-role="panel" id="nav-panel1" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
-			        	<ul data-role="listview" class="ui-listview">
-			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
-			        		<li class="ui-first-child">
-			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
-			        		</li>
-			        		<li>
-			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
-			        		</li>
-			        		<li>
-			        			<a href="#incidente" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Siniestro</a>
-			        		</li>	
-			        		<li>
-			        			<a href="#DatosMedicos" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Datos Medicos</a>
-			        		</li>
-			        		<li>
-			        			<a href="#AlertasPoliza" onclick="policiesAlert();" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Alertas</a>
-			        		</li>
-			        		<li>
-			        			<a href="#DatosMecanico" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Mecanico Automotriz</a>
-			        		</li>		
-			        	</ul> 
+			        	 
 			        </div>
 			    </div><!-- /Panel -->
     		
     			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
-    				<a href="#nav-panel1" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
-    				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
-    				<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
+    				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     			</div>
     			
     			<div role="main" class="ui-content">
-    				Inicio 
+    				<div align="center" style="width: 100%; height: 30%;">
+    					<img src="images/logo.png" style="margin-left: 12px;" />
+    				</div>
+    				<div class="ui-body ui-body-a ui-corner-all">
+    					<input type="text" id="txtEmail" name="txtEmail" value="" placeholder="E-Mail" />
+    					<input type="password" id="txtPwd" name="txtPwd" value="" placeholder="Password" />
+    				</div>
+    				<input type="button" id="btnLogIn" name="btnLogIn" value="Entrar" onclick="logIn();" class="ui-btn ui-corner-all" />
     			</div>
     			
-    			<div data-role="footer" data-position="fixed" data-fullscreen="true">
+    			<div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
 					<h3></h3>
 				</div><!-- /footer -->
 				
     		</div><!-- pageInicio -->
     		
-    		<!-- ------------------------Incidentes------------------------ -->
+    		<!-- ------------------------Siniestros------------------------ -->
     		<div data-role="page" id="incidente" class="ui-page-header-fixed ui-page-footer-fixed">
     		
     			<div data-role="panel" id="nav-panel2" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
-			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Car Crash</li>
 			        		<li class="ui-first-child">
-			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
-			        		</li>
-			        		<li>
 			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
 			        		</li>
 			        		<li>
 			        			<a href="#incidente" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Siniestro</a>
-			        		</li>	
+			        		</li>
 			        		<li>
 			        			<a href="#DatosMedicos" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Datos Medicos</a>
 			        		</li>	
 			        		<li>
 			        			<a href="#AlertasPoliza" onclick="policiesAlert();" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Alertas</a>
-			        		</li>	
+			        		</li>
 			        		<li>
 			        			<a href="#DatosMecanico" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Mecanico Automotriz</a>
-			        		</li>
+			        		</li>	
 			        	</ul>
 			        </div>
 			    </div><!-- /Panel -->
@@ -136,18 +118,80 @@
     			</div>
 				
 				<div data-role="popup" id="popupDialog" data-dismissible="false" style="max-width:400px; margin-top: 0;">
-					<div data-role="header" data-theme="a">
+					<div data-role="header">
 						<h1>Reportar?</h1>
 					</div>
 					<div role="main" class="ui-content">
 						<h3 class="ui-title">Esta seguro que desea reportar el siniestro?</h3>
 						<p>Esta accion enviara su ubicacion y datos a su aseguradora.</p>
 						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancelar</a>
-						<a href="" onclick="sendIncidenteInfo();" class="ui-btn ui-btn-red ui-corner-all ui-shadow ui-btn-inline" data-rel="back" data-transition="flow">Reportar</a>
+						<a href="#" onclick="sendIncidenteInfo();" class="ui-btn ui-btn-red ui-corner-all ui-shadow ui-btn-inline" data-transition="flow">Reportar</a>
 						</div>
 				</div>
 				
     		</div><!-- pageIncidete -->
+    		<div data-role="page" id="siniestro" class="ui-page-header-fixed ui-page-footer-fixed">
+    		
+    			<div data-role="panel" id="nav-panel3" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
+    				<div class="ui-panel-inner">
+			        	<ul data-role="listview" class="ui-listview">
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Car Crash</li>
+			        		<li class="ui-first-child">
+			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
+			        		</li>
+			        		<li>
+			        			<a href="#incidente" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Siniestro</a>
+			        		</li>
+			        		<li>
+			        			<a href="#DatosMedicos" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Datos Medicos</a>
+			        		</li>	
+			        		<li>
+			        			<a href="#AlertasPoliza" onclick="policiesAlert();" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Alertas</a>
+			        		</li>
+			        		<li>
+			        			<a href="#DatosMecanico" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Mecanico Automotriz</a>
+			        		</li>			
+			        	</ul>
+			        </div>
+			    </div><!-- /Panel -->
+			    
+    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    				<a href="#nav-panel3" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
+    				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
+    				<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>
+    			</div>
+    			<div role="main" class="ui-content">
+    				<div class="ui-body ui-body-a ui-corner-all">
+	    				<div id="photos" style="padding: 10px 10px 0px 10px;" align="center">
+	    					<div id="photoCube" style="width: 70px; height: 70px; border: thin; border-style: dashed; display: inline-block;"></div>
+	    				</div>
+	    				<a href="#" onclick="takePicture();" class="ui-btn ui-corner-all">Tomar Foto</a>
+	    			</div>
+	    			<br/>
+	    			<div class="ui-body ui-body-a ui-corner-all">
+	    					<div class="ui-field-contain">
+	    						<label for="flipAmbulancia">Requiere de una ambulancia?</label>
+	    						<select name="flipAmbulancia" id="flipAmbulancia" data-role="slider">
+		    						<option value="off">No</option>
+		    						<option value="on">Si</option>
+		    					</select>
+		    				</div>
+		    				<div class="ui-field-contain">
+		    					<label for="flipLegal">Requiere de asistencia legal?</label>
+	    						<select name="flipLegal" id="flipLegal" data-role="slider">
+		    						<option value="off">No</option>
+		    						<option value="on">Si</option>
+		    					</select>
+		    				</div>
+		    				<label for="txtObservaciones">Observaciones:</label>
+		    				<textarea name="txtObservaciones" id="txtObservaciones"></textarea>
+	    			</div>
+	    			<a href="#" onclick="enviarExtras();" class="ui-btn ui-btn-red ui-corner-all">Enviar informacion</a>
+    			</div>
+    			<div data-role="footer" data-position="fixed" data-fullscreen="true">
+    				<h3></h3>
+    			</div>
+    		</div>
     		
     		<!-- --------------------------- Perfil ------------------------- -->
     		
@@ -156,11 +200,8 @@
     			<div data-role="panel" id="nav-panel" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
-			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Car Crash</li>
 			        		<li class="ui-first-child">
-			        			<a href="#inicio"  class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
-			        		</li>
-			        		<li>
 			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
 			        		</li>
 			        		<li>
@@ -438,11 +479,8 @@
     			<div data-role="panel" id="nav-panel3" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
-			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Car Crash</li>
 			        		<li class="ui-first-child">
-			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
-			        		</li>
-			        		<li>
 			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
 			        		</li>
 			        		<li>
@@ -514,11 +552,8 @@
     			<div data-role="panel" id="nav-panel4" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
-			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Car Crash</li>
 			        		<li class="ui-first-child">
-			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
-			        		</li>
-			        		<li>
 			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
 			        		</li>
 			        		<li>
@@ -575,11 +610,8 @@
     			<div data-role="panel" id="nav-panel5" data-position-fixed="true" class="ui-panel ui-panel-position-left ui-panel-display-push ui-body-inherit ui-panel-animate ui-panel-open">
     				<div class="ui-panel-inner">
 			        	<ul data-role="listview" class="ui-listview">
-			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Menu</li>
+			        		<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit">Car Crash</li>
 			        		<li class="ui-first-child">
-			        			<a href="#inicio" class="ui-btn ui-btn-icon-right ui-icon-home">Inicio</a>
-			        		</li>
-			        		<li>
 			        			<a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Perfil</a>
 			        		</li>
 			        		<li>
