@@ -121,21 +121,13 @@
 		}		
 		$(document).on('pagebeforeshow','#perfil',function(e,data){    
 		    
-		
-		    $.ajax({
-		        type: "get",
-		        url: "xmls/perfil.xml",
-		        dataType: "xml",
-		        data: {
-		           
-		        },
-		        success: function(data) {
-		            ajax.parseXML(data);
-		        },
-		        error: function (request,error) {
-		        	alert(''+error);
-		        }
-		    });
+		var n=	$("#txtName");
+		var n1=	$("#txtFirstName");
+		var n2=	$("#txtLastName");
+		var n3=	$("#txtCellPhone");
+		var n4=	$("#searchCity");
+		var n5=	$("#txtEmpresa");	
+		initPerfilDataInfo(n,n1,n2,n3,n4,n5);					  
 		});
 	
 		var ajax = {  
@@ -238,7 +230,7 @@
 			var cellPhone=$("#txtCellPhone");
 			var serachCity=$("#searchCity");
 			var empresa=$("#txtEmpresa");						
-			
+			setDataToTransaction(name,firstName,lastName,cellPhone,serachCity,empresa);
 		}
 		function saveAnyPerfil(){						
 			switch(navigation){
@@ -265,9 +257,10 @@
 			 var newAmount = "2";
 
 		    if(newAmount != '') {
-		    	addPolicyToList(serie);		    
+		    	setDataToPolicyTransaction(policy,serie,plates,vehicleType,mark,subMark,model,color,holder,conductor);
+		    	addPolicyToList(serie);		     
 		    } else {
-		        alert('Nothing to add');   
+		       
 		    }
 		    
 		   
@@ -358,4 +351,6 @@
           	alert(result.errorMsg);
           }	
 		
-		
+          function obsolet(){
+				
+  		}
