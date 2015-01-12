@@ -42,22 +42,26 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<h1 style="padding:0 0 0 0;"><a href="#" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     			</div>
     			
-    			<div role="main" class="ui-content">
-    				<div align="center" style="width: 100%; height: 30%;">
-    					<img src="images/logo.png" style="margin-left: 12px;" />
+    			<div role="main" class="ui-content" align="center">
+    				<div class="ui-body ui-body-a ui-corner-all" style="height: 100%;">
+	    				<div align="center">
+	    					<img src="images/logo.png" style="margin-left: 12px;" />
+	    				</div>
+	    				<br/>
+	    				<div class="ui-body ui-body-a ui-corner-all">
+	    					<input type="text" id="txtEmail" name="txtEmail" value="" placeholder="E-Mail" />
+	    					<input type="password" id="txtPwd" name="txtPwd" value="" placeholder="Password" />
+	    				</div>
+	    				<br/>
+	    				<input type="button" id="btnLogIn" name="btnLogIn" value="Entrar" onclick="logIn();" class="ui-btn ui-corner-all" />
     				</div>
-    				<div class="ui-body ui-body-a ui-corner-all">
-    					<input type="text" id="txtEmail" name="txtEmail" value="" placeholder="E-Mail" />
-    					<input type="password" id="txtPwd" name="txtPwd" value="" placeholder="Password" />
-    				</div>
-    				<input type="button" id="btnLogIn" name="btnLogIn" value="Entrar" onclick="logIn();" class="ui-btn ui-corner-all" />
     			</div>
     			
-    			<div data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
+    			<div data-hide-during-focus="false" data-role="footer" data-position="fixed" data-fullscreen="true" data-tap-toggle="false">
 					<h3></h3>
 				</div><!-- /footer -->
 				
@@ -89,7 +93,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel2" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
@@ -155,7 +159,7 @@
 			        </div>
 			    </div><!-- /Panel -->
 			    
-    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel3" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>
@@ -188,7 +192,7 @@
 	    			</div>
 	    			<a href="#" onclick="enviarExtras();" class="ui-btn ui-btn-red ui-corner-all">Enviar informacion</a>
     			</div>
-    			<div data-role="footer" data-position="fixed" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="footer" data-position="fixed" data-fullscreen="true">
     				<h3></h3>
     			</div>
     		</div>
@@ -221,7 +225,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header"  data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="header"  data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a    href="#popupDialogPolicy"  data-rel="popup" data-position-to="window"
@@ -466,7 +470,7 @@
 						</div>
 				</div>
 				
-    			<div data-role="footer" data-position="fixed" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="footer" data-position="fixed" data-fullscreen="true">
 					<h3></h3>
 				</div><!-- /footer -->
 				
@@ -499,7 +503,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel3" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a href="#popupDialogMedicalData"  data-rel="popup" data-position-to="window"
@@ -572,7 +576,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel4" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a href="#popupDialogPolicy"  data-rel="popup" data-position-to="window"
@@ -630,7 +634,7 @@
 			        </div>
 			    </div><!-- /Panel -->
     		
-    			<div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
+    			<div data-hide-during-focus="false" data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="true">
     				<a href="#nav-panel5" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a href="#popupDialogMechanicData"  data-rel="popup" data-position-to="window"
