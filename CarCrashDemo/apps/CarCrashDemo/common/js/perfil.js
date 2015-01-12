@@ -127,7 +127,7 @@
 		var n3=	$("#txtCellPhone");
 		var n4=	$("#searchCity");
 		var n5=	$("#txtEmpresa");	
-		initPerfilDataInfo(n,n1,n2,n3,n4,n5);					  
+		initPerfilDataInfo(n,n1,n2,n3,n4,n5); 	 				  
 		});
 	
 		var ajax = {  
