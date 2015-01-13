@@ -34,7 +34,7 @@
     	<body style="display: none;">
     		<!--application UI goes here-->
     		
-    		<div data-role="page" id="inicio" class="ui-page-footer-fixed">
+    		<div data-role="page" id="LogIn" class="ui-page-footer-fixed">
     			<div role="main" id="content" align="center" class="fullContent background-content ui-content">
     				<div style="margin:0 10px 0 10px;">
 		   				<div align="center">
@@ -50,12 +50,37 @@
 	   			<div data-role="footer" class="bottomFooter">
 	   				<div data-role="navbar" data-iconpos="top">
 	   					<ul>
-							<li><a href="#" data-icon="user">Sign Up</a></li>
-							<li><a href="#" data-icon="info">Help</a></li>
+							<li><a href="#SignUp" data-icon="user">Sign Up</a></li>
+							<li><a href="#" onclick="alert('Por favor inserte el correo electronico registrado para la aplicacion y su contraseña');" data-icon="info">Help</a></li>
 						</ul>
 					</div><!-- /navbar -->
 	   			</div>	
-	    	</div><!-- pageInicio -->
+	    	</div><!-- pageLogIn -->
+	    	
+	    	<div data-role="page" id="SignUp" class="ui-page-footer-fixed">
+    			<div role="main" id="content" align="center" class="fullContent background-content ui-content">
+    				<div style="margin:0 10px 0 10px;">
+		   				<h2 style="color: white; text-shadow: none !important;">Sign Up</h2>
+		   				<input type="text" id="txtName" name="txtName" value="" placeholder="Nombre completo" />
+		   				<input type="date" id="txtNacimiento" name="txtNacimiento" value="" placeholder="Fecha de nacimiento"/>
+		   				<input type="text" id="txtPais" name="txtPais" value="" placeholder="País" />
+		   				<input type="text" id="txtCiudad" name="txtCiudad" value="" placeholder="Ciudad" />
+		   				<input type="email" id="txtEmail" name="txtEmail" value="" placeholder="E-Mail" />
+		   				<input type="password" id="txtPass" name="txtPass" value="" placeholder="Contraseña" />
+		   				<input type="password" id="txtPassConfirm" name="txtPassConfirm" value="" placeholder="Confirma contraseña" />
+		   				<input type="tel" id="txtCelular" name="txtCelular" value="" placeholder="Celular" />
+		   				<a href="#LogIn" onclick="alert('Este es un demo, favor de ingresar con el usuario admin y contraseña admin');" class="ui-btn ui-btn ui-corner-all">Sign Up</a>
+	   				</div>
+	   			</div>
+	   			<div data-role="footer" class="bottomFooter">
+	   				<div data-role="navbar" data-iconpos="top">
+	   					<ul>
+							<li><a href="#LogIn" data-icon="user">Log In</a></li>
+						</ul>
+					</div><!-- /navbar -->
+	   			</div>	
+	    	</div><!-- pageSignUp -->
+	    	
     		
     		<!-- ------------------------Siniestros------------------------ -->
     		<div data-role="page" id="incidente" class="ui-page-header-fixed ui-page-footer-fixed">
