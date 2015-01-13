@@ -25,11 +25,10 @@ function initPerfilDataInfo(namep, firstnamep, lastnamep, cellPhonep,cityp,enter
 				  // Returns a maximum of 1 documents, default no limit.
 				  limit: 1
 				};
-		WL.JSONStore.get(collectionName).findAll(options).then(function (arrayResults) {
-		
-		var v=	JSON.stringify(arrayResults).split("{");
-		var t=v[2].split(":");
-
+		WL.JSONStore.get(collectionName).findAll(options).then(function (arrayResults) {			
+		if(arrayResults.length>0){
+			var v=	JSON.stringify(arrayResults).split("{");		 
+		var t=JSON.stringify(v[2]).split(":");    
 		  WL.Logger.debug("Retrieve success" +  WL.JSONStore.get('perfil').find({name: 'leo'}));
 		setData(t[0].replace('"','').replace('"',''),t[1].split(",")[0].replace('"','').replace('"',''),namep,firstnamep,lastnamep,cellPhonep,cityp,enterprisep);
 		setData(t[1].split(",")[1].replace('"','').replace('"',''),t[2].split(",")[0].replace('"','').replace('"',''),namep,firstnamep,lastnamep,cellPhonep,cityp,enterprisep);
@@ -37,6 +36,7 @@ function initPerfilDataInfo(namep, firstnamep, lastnamep, cellPhonep,cityp,enter
 		setData(t[3].split(",")[1].replace('"','').replace('"',''),t[4].split(",")[0].replace('"','').replace('"',''),namep,firstnamep,lastnamep,cellPhonep,cityp,enterprisep);
 		setData(t[4].split(",")[1].replace('"','').replace('"',''),t[5].split(",")[0].replace('"','').replace('"',''),namep,firstnamep,lastnamep,cellPhonep,cityp,enterprisep);
 		setData(t[5].split(",")[1].replace('"','').replace('"',''),t[6].split(",")[0].replace('"','').replace('"','').replace(']','').replace('}}',''),namep,firstnamep,lastnamep,cellPhonep,cityp,enterprisep);			  
+		}
 		});
 	});	
 	}
