@@ -16,7 +16,8 @@
     		<script src="js/jquery-1.11.2.js"></script>
     		<script src="js/jquery.mobile-1.4.5.js"></script>
     		<script src="js/maps.js"></script>    	    		    			    			
-    		<script src="js/siniestros.js"></script> 
+    		<script src="js/siniestros.js"></script>
+    		<script src="js/account.js"></script>  
     	    <script src="js/JSonStore/transactions.js"></script>
     	    <script src="js/JSonStore/find.js"></script>  
     	    <script src="js/perfil.js"></script>       	         	      			
@@ -36,7 +37,7 @@
     		
     		<div data-role="page" id="LogIn" class="ui-page-footer-fixed">
     			<div role="main" id="content" align="center" class="fullContent background-content ui-content">
-    				<div style="margin:0 10px 0 10px;">
+    				<div style="margin:10% 10px 0 10px;">
 		   				<div align="center">
 		   					<img src="images/logo.png" style="margin-left: 12px;" />
 		   				</div>
@@ -47,7 +48,7 @@
 		   				<input type="button" id="btnLogIn" name="btnLogIn" value="Log In" onclick="logIn();" class="ui-btn ui-corner-all" />
 	   				</div>
 	   			</div>
-	   			<div data-role="footer" class="bottomFooter">
+	   			<div data-hide-during-focus="false" data-role="footer" data-position="fixed" data-fullscreen="true" class="bottomFooter">
 	   				<div data-role="navbar" data-iconpos="top">
 	   					<ul>
 							<li><a href="#SignUp" data-icon="user">Sign Up</a></li>
@@ -70,12 +71,16 @@
 		   				<input type="password" id="txtPassConfirm" name="txtPassConfirm" value="" placeholder="Confirma contraseña" />
 		   				<input type="tel" id="txtCelular" name="txtCelular" value="" placeholder="Celular" />
 		   				<a href="#LogIn" onclick="alert('Este es un demo, favor de ingresar con el usuario admin y contraseña admin');" class="ui-btn ui-btn ui-corner-all">Sign Up</a>
+		   				<br/>
+		   				<br/>
+		   				<br/>
+		   				<br/>
 	   				</div>
 	   			</div>
-	   			<div data-role="footer" class="bottomFooter">
-	   				<div data-role="navbar" data-iconpos="top">
+	   			<div data-hide-during-focus="false" data-role="footer" data-position="fixed" data-fullscreen="true" class="bottomFooter">
+	   				<div data-role="navbar">
 	   					<ul>
-							<li><a href="#LogIn" data-icon="user">Log In</a></li>
+							<li><a href="#LogIn">Log In</a></li>
 						</ul>
 					</div><!-- /navbar -->
 	   			</div>	
