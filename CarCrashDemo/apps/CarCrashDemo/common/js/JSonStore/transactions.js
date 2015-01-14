@@ -125,7 +125,7 @@ function setDataToPolicyTransaction(policyp, seriep, platesp, vehicleTypep,markp
 	.fail(function (errorObject) {		
 		// Handle failure for any of the previous JSONStore operation.
 		//(startTransaction, add, remove).
-
+		 
 		WL.JSONStore.rollbackTransaction()
 
 		.always(function () {

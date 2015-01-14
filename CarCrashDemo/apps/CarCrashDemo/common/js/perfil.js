@@ -117,7 +117,7 @@
 		}		
 		$(document).on('pagebeforeshow','#perfil',function(e,data){    
 		    
-		var n=	$("#txtName");
+		var n=	$("#txtProfileName");
 		var n1=	$("#txtFirstName");
 		var n2=	$("#txtLastName");
 		var n3=	$("#txtCellPhone");
@@ -220,13 +220,13 @@
 		}
 		
 		function savePerfil(){						
-			var name=	$("#txtName");
+			var pname =	$("#txtProfileName");
 			var firstName=	$("#txtFirstName");
 			var lastName=	$("#txtLastName");
 			var cellPhone=$("#txtCellPhone");
 			var serachCity=$("#searchCity");
 			var empresa=$("#txtEmpresa");						
-			setDataToTransaction(name,firstName,lastName,cellPhone,serachCity,empresa);
+			setDataToTransaction(pname,firstName,lastName,cellPhone,serachCity,empresa);			
 		}
 		function saveAnyPerfil(){						
 			switch(navigation){
