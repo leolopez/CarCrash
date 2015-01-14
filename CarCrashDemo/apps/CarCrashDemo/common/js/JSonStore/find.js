@@ -28,8 +28,7 @@ function initPerfilDataInfo(namep, firstnamep, lastnamep, cellPhonep,cityp,enter
 		WL.JSONStore.get(collectionName).findAll(options).then(function (arrayResults) {			
 		if(arrayResults.length>0){
 			var v=	JSON.stringify(arrayResults).split("{");		 
-		var t=JSON.stringify(v[2]).split(":");    
-		  WL.Logger.debug("Retrieve success" +  WL.JSONStore.get('perfil').find({name: 'leo'}));
+		var t=v[2].split(":");    		
 		setData(t[0].replace('"','').replace('"',''),t[1].split(",")[0].replace('"','').replace('"',''),namep,firstnamep,lastnamep,cellPhonep,cityp,enterprisep);
 		setData(t[1].split(",")[1].replace('"','').replace('"',''),t[2].split(",")[0].replace('"','').replace('"',''),namep,firstnamep,lastnamep,cellPhonep,cityp,enterprisep);
 		setData(t[2].split(",")[1].replace('"','').replace('"',''),t[3].split(",")[0].replace('"','').replace('"',''),namep,firstnamep,lastnamep,cellPhonep,cityp,enterprisep);

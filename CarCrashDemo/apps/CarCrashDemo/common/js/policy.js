@@ -1,16 +1,23 @@
-
-		$(
-		
-		function initPerfil(){
-		$("#listCountries").hide();
-		$("#listMarks").hide();
-		$("#listSubMarks").hide();
-		$("#listCities").hide();
-		$("#policyCont").hide();
-				
-		   
-		}
-		);
+	var policyNavigation=0;
+	
+		function initPolicyPage(){
+			$("#listCountries").hide();
+			$("#listMarks").hide();
+			$("#listSubMarks").hide();
+			$("#listCities").hide();
+			$("#policyCont").show();
+			$("#vehicleCont").hide();
+			policyNavigation=0;
+			   
+			}
+		function initVehicle(){
+			$("#listMarks").hide();
+			$("#listSubMarks").hide();
+			$("#policyCont").hide();
+			$("#vehicleCont").show();
+			policyNavigation=0;
+			   
+			}
 		
 		function policiesAlert(){
 			
@@ -18,15 +25,18 @@
 				alert('La poliza 3GCEC28K4WG132181 esta por caducar.');
 		}
 		
-		var navigation=0;
+		
 		var selectedPolizaData;
 		function j(){
 		$("#perfilCont").hide();
 		}
-		
-		function backPerfilCont(){
+		function backPolicyCont(){
+			$("#policyCont").show();
+		$("#vehicleCont").hide();		
+		}
+		function backVehicleCont(){
 			$("#policyCont").hide();
-		$("#perfilCont").show();		
+		$("#vehicleCont").show();		
 		}
 		function backPerfilCountries(){
 			$("#listCountries").hide();
@@ -36,23 +46,7 @@
 		function backPerfilCities(){
 			$("#listCities").hide();
 			$("#listCountries").show();
-		}
-		function backPerfilCountries(){
-			$("#listCountries").hide();
-			$("#perfilCont").show();		
-		}
-		
-		function initCountries(){	
-		$("#perfilCont").hide();
-		$("#listCountries").show();
-		navigation=4;
-		} 
-		
-		function clearCountries(country){
-		$("#listCities").show();
-		$("#listCountries").hide();		
-		navigation=5;
-		}
+		}						
 		
 		var cityData;
 		function clearCities(city){
@@ -60,13 +54,17 @@
 			$("#lblCitySelected").text(""+$(cityData).text());			
 		}
 		
-		
+		function initMarks(){
+		$("#vehicleCont").hide();
+		$("#listMarks").show();
+		policyNavigation=2;
+		}
 		var markData;
 		function clearMarks(mark){
 			$("#listMarks").hide();
 			$("#listSubMarks").show();			
 			markData=mark;
-			navigation=3;
+			policyNavigation=3;
 		}
 		
 		         
@@ -90,7 +88,7 @@
 			loadSelectedVehicle("true");
 			$("#perfilCont").hide();
 			$("#policyCont").show();
-			navigation=1;
+			policyNavigation=1;
 			
 		}
 		 var listitem;
@@ -109,21 +107,15 @@
 		
 		
 		function markSelected(){			
-			$("#policyCont").show();
+			$("#vehicleCont").show();
 			$("#listSubMarks").hide();
 			$("#searchSubMark").val(""+$(submarkData).html());
 			$("#searchMark").val(""+$(markData).html());
-			navigation=1;
+			policyNavigation=0;
 		}		
-		$(document).on('pagebeforeshow','#perfil',function(e,data){    
+		$(document).on('pagebeforeshow','#AgregarPoliza',function(e,data){    
 		    
-		var n=	$("#txtName");
-		var n1=	$("#txtFirstName");
-		var n2=	$("#txtLastName");
-		var n3=	$("#txtCellPhone");
-		var n4=	$("#searchCity");
-		var n5=	$("#txtEmpresa");	
-		initPerfilDataInfo(n,n1,n2,n3,n4,n5); 	 				  
+		initPolicyPage();	 				  
 		});
 	
 		var ajax = {  
@@ -231,10 +223,10 @@
 		function saveAnyPerfil(){						
 			switch(navigation){
 			case 0:						
-				 savePerfil();
+				
 			break;
 			case 1:						
-				savePolicy();
+				
 				break;				
 			}			
 		}
@@ -275,11 +267,12 @@
 			$("#listCities").hide();
 			$("#listCountries").hide();					
 			$("#searchCity").val(""+$(cityData).text());
-			navigation=0;
+			policyNavigation=0;
 		}
 		function backPerfilMarks(){
 			$("#listMarks").hide();
-			$("#policyCont").show();		
+			$("#vehicleCont").show();
+			
 		}
 		
 		function backPerfilSubMarks(){
@@ -287,59 +280,24 @@
 			$("#listMarks").show();
 		}
 		
-		function backPerfil(){
-			
-			switch(navigation){
-			case 0:						
-				initPerfil();	
+		function backPolicy(){
+			  
+			switch(policyNavigation){
+			case 0:
+				backPolicyCont();						
 			break;
 			case 1:
-				backPerfilCont();				
-				navigation=0;
+				backVehicleCont();	
+				policyNavigation=0;
 			break;
 			case 2:				
 				 backPerfilMarks();
-				 navigation=1;
+				 policyNavigation=0;
 			break;
-			case 3:				
+			case 3:			 	
 				backPerfilSubMarks();
-				navigation=2;
+				policyNavigation=2;
 			break;
-			case 4:				
-				backPerfilCountries();
-				navigation=0;
-			break;
-			case 5:					
-				 backPerfilCities();
-				 navigation=4;
-			break;	
 			}
-		}		 		
+		}
 		
-		  function getTest() {
-              var invocationData = {
-                      adapter : 'testXML',
-                      procedure : 'CreateXML',
-                      invocationContext: {}
-                  };
-
-              WL.Client.invokeProcedure(invocationData,{
-                  onSuccess : successHandler,
-                  onFailure : failureHandler,
-              });
-          }					
-          
-          function successHandler(result)
-          {
-          WL.Logger.debug("Retrieve success" +  JSON.stringify(result));
-          alert('res '+result.invocationResult.result);  
-          }
-          
-          function failureHandler(result)
-          {
-          	alert(result.errorMsg);
-          }	
-		
-          function obsolet(){
-				
-  		}
