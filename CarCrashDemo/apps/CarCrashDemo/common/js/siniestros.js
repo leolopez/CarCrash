@@ -1,3 +1,4 @@
+var sPageNav = "";
 function sendIncidenteInfo()
 {
 	if(currentLat != 0 && currentLng != 0)
@@ -10,7 +11,7 @@ function sendIncidenteInfo()
 					'\nAuto:\n' +
 					$('#selectAuto option:selected').text() +
 					'\nPlacas - HCM-2101\nPoliza - 11111111');
-			location.href = "#siniestro";
+			location.href = sPageNav;
 		}
 		else
 		{
@@ -51,4 +52,9 @@ function enviarExtras()
 			'\nAmbulancia? - ' + ambulancia +
 			'\nAsistencia Legal? - ' + legal +
 			'\nObservaciones: ' + observaciones);
+}
+
+function reportar(page)
+{
+	sPageNav = page;
 }

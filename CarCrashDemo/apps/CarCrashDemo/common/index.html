@@ -146,15 +146,23 @@
 							</select>
 						</div>
 					</div>
-					<a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-red ui-corner-all">Reportar</a>
+					<!-- <a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-red ui-corner-all">Reportar</a> -->
     			</div>
+    			<div data-hide-during-focus="false" data-tap-toggle="false" data-role="footer" data-position="fixed" data-fullscreen="true">
+	   				<div data-role="navbar">
+	   					<ul>
+							<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" onclick="reportar('#siniestro');">Siniestro</a></li>
+							<li><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" onclick="reportar('#reportes');">Robo</a></li>
+						</ul>
+					</div><!-- /navbar -->
+	   			</div>	
 				
 				<div data-role="popup" id="popupDialog" data-dismissible="false" style="max-width:400px; margin-top: 0;">
 					<div data-role="header">
 						<h1>Reportar?</h1>
 					</div>
 					<div role="main" class="ui-content">
-						<h3 class="ui-title">Esta seguro que desea reportar el siniestro?</h3>
+						<h3 class="ui-title">Esta seguro que desea levantar un reporte?</h3>
 						<p>Esta accion enviara su ubicacion y datos a su aseguradora.</p>
 						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancelar</a>
 						<a href="#" onclick="sendIncidenteInfo();" class="ui-btn ui-btn-red ui-corner-all ui-shadow ui-btn-inline" data-transition="flow">Reportar</a>
@@ -231,6 +239,10 @@
     			<div data-hide-during-focus="false" data-role="footer" data-position="fixed" data-fullscreen="true">
     				<h3></h3>
     			</div>
+    		</div>
+    		
+    		<div data-role="page" id="reportes" class="ui-page-header-fixed ui-page-footer-fixed">
+    			
     		</div>
     		
     		<!-- --------------------------- Perfil ------------------------- -->
