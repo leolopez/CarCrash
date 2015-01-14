@@ -1,3 +1,4 @@
+var sPageNav = "";
 function sendIncidenteInfo()
 {
 	if(currentLat != 0 && currentLng != 0)
@@ -10,7 +11,7 @@ function sendIncidenteInfo()
 					'\nAuto:\n' +
 					$('#selectAuto option:selected').text() +
 					'\nPlacas - HCM-2101\nPoliza - 11111111');
-			location.href = "#siniestro";
+			location.href = sPageNav;
 		}
 		else
 		{
@@ -51,4 +52,28 @@ function enviarExtras()
 			'\nAmbulancia? - ' + ambulancia +
 			'\nAsistencia Legal? - ' + legal +
 			'\nObservaciones: ' + observaciones);
+	
+	location.href="#reportes";
+}
+
+function reportar(page)
+{
+	sPageNav = page;
+}
+
+//------------------------------Reportes de siniestros-------------------------------
+
+function changeReport(tab)
+{
+	switch($(tab).text())
+	{
+	case 'Siniestro':
+		$('#repSiniestro').show();
+		$('#repRobo').hide();
+		break;
+	case 'Robo':
+		$('#repSiniestro').hide();
+		$('#repRobo').show();
+		break;
+	}
 }
