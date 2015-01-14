@@ -52,6 +52,8 @@ function enviarExtras()
 			'\nAmbulancia? - ' + ambulancia +
 			'\nAsistencia Legal? - ' + legal +
 			'\nObservaciones: ' + observaciones);
+	
+	location.href="#reportes";
 }
 
 function reportar(page)
