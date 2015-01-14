@@ -58,3 +58,20 @@ function reportar(page)
 {
 	sPageNav = page;
 }
+
+//------------------------------Reportes de siniestros-------------------------------
+
+function changeReport(tab)
+{
+	switch($(tab).text())
+	{
+	case 'Siniestro':
+		$('#repSiniestro').show();
+		$('#repRobo').hide();
+		break;
+	case 'Robo':
+		$('#repSiniestro').hide();
+		$('#repRobo').show();
+		break;
+	}
+}
