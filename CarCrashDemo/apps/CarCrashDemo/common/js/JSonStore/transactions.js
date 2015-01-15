@@ -135,3 +135,127 @@ function setDataToPolicyTransaction(policyp, seriep, platesp, vehicleTypep,markp
 
 }
 
+function setMechanicDataTransaction(namep, firstnamep, lastnamep, cellPhonep,cityp,enterprisep){
+	var collectionName = 'perfil';    
+
+    	    var collections = {
+    	            perfil : {
+    	                searchFields: {name: 'string', firstname: 'string', lastname: 'string', cellPhone: 'string',
+    	                	city: 'string', enterprise: 'string'}
+    	            } 
+    	    };   
+    	    
+    	    WL.JSONStore.init(collections).then(function () {   			
+   			   WL.JSONStore.get(collectionName).clear(); 
+   		});
+	  
+     WL.JSONStore.init(collections)	 	  
+	.then(function () {
+
+		return WL.JSONStore.startTransaction();
+	})
+
+	.then(function () {
+
+		// Handle startTransaction success.
+		// You can call every JSONStore API method except:
+		// init, destroy, removeCollection, and closeAll.
+		
+		// Data to add, you probably want to get
+		// this data from a network call (e.g. Adapter).
+		var data = [{name: namep.val().trim(), firstname: firstnamep.val().trim(), lastname: lastnamep.val().trim(), cellPhone: cellPhonep.val().trim(),
+        	city: cityp.val().trim(), enterprise: enterprisep.val().trim()}];
+
+		// Optional options for add.
+		var addOptions = {
+
+				// Mark data as dirty (true = yes, false = no), default true.
+				markDirty: true
+		};
+
+		// Get an accessor to the people collection and add data.
+		return WL.JSONStore.get(collectionName).add(data,addOptions);
+	})
+	.then(function () {
+
+		return WL.JSONStore.commitTransaction();
+	})
+	.then(function () {
+     	
+       
+     })
+	.fail(function (errorObject) {		
+		// Handle failure for any of the previous JSONStore operation.
+		//(startTransaction, add, remove).
+
+		WL.JSONStore.rollbackTransaction()
+
+		.always(function () {
+			
+		});
+	});
+
+}
+
+function setMedicalDataTransaction(namep, firstnamep, lastnamep, cellPhonep,cityp,enterprisep){
+	var collectionName = 'perfil';    
+
+    	    var collections = {
+    	            perfil : {
+    	                searchFields: {name: 'string', firstname: 'string', lastname: 'string', cellPhone: 'string',
+    	                	city: 'string', enterprise: 'string'}
+    	            } 
+    	    };   
+    	    
+    	    WL.JSONStore.init(collections).then(function () {   			
+   			   WL.JSONStore.get(collectionName).clear(); 
+   		});
+	  
+     WL.JSONStore.init(collections)	 	  
+	.then(function () {
+
+		return WL.JSONStore.startTransaction();
+	})
+
+	.then(function () {
+
+		// Handle startTransaction success.
+		// You can call every JSONStore API method except:
+		// init, destroy, removeCollection, and closeAll.
+		
+		// Data to add, you probably want to get
+		// this data from a network call (e.g. Adapter).
+		var data = [{name: namep.val().trim(), firstname: firstnamep.val().trim(), lastname: lastnamep.val().trim(), cellPhone: cellPhonep.val().trim(),
+        	city: cityp.val().trim(), enterprise: enterprisep.val().trim()}];
+
+		// Optional options for add.
+		var addOptions = {
+
+				// Mark data as dirty (true = yes, false = no), default true.
+				markDirty: true
+		};
+
+		// Get an accessor to the people collection and add data.
+		return WL.JSONStore.get(collectionName).add(data,addOptions);
+	})
+	.then(function () {
+
+		return WL.JSONStore.commitTransaction();
+	})
+	.then(function () {
+     	
+       
+     })
+	.fail(function (errorObject) {		
+		// Handle failure for any of the previous JSONStore operation.
+		//(startTransaction, add, remove).
+
+		WL.JSONStore.rollbackTransaction()
+
+		.always(function () {
+			
+		});
+	});
+
+}
+

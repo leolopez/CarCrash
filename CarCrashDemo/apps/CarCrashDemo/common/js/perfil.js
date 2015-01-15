@@ -339,7 +339,5 @@
           {
           	alert(result.errorMsg);
           }	
-		
-          function obsolet(){
-				
-  		}
+		 
+         

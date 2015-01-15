@@ -7,16 +7,21 @@
 			$("#listCities").hide();
 			$("#policyCont").show();
 			$("#vehicleCont").hide();
-			policyNavigation=0;
-			   
+			policyNavigation=0;			   
 			}
-		function initVehicle(){
+		function initVehicle(){			  	
+		var policy=	 $("#txtPolicy");
+		var policyDate=	 $("#txtPolicyDate");
+		var aseg=$('#selectAseg :selected');
+		if(policyDate.val().trim().length>0&&policy.val().trim().length>0&&aseg.val()!="0"){ 
 			$("#listMarks").hide();
 			$("#listSubMarks").hide();
 			$("#policyCont").hide();
 			$("#vehicleCont").show();
 			policyNavigation=0;
-			   
+			}else{				
+				alert("Ingrese todos los datos");
+			} 
 			}
 		
 		function policiesAlert(){
@@ -81,14 +86,14 @@
 			$("#listPolicy").append(listItem);
 			
 		}
-		function initPolicy(v){
+		function initSelectedPolicyPage(v){
 			var  listitem = $(v).parent( "li" );	
 			
 			selectedPolizaData=$(listitem).text();
-			loadSelectedVehicle("true");
+			alert(selectedPolizaData);
 			$("#perfilCont").hide();
 			$("#policyCont").show();
-			policyNavigation=1;
+			policyNavigation=0;
 			
 		}
 		 var listitem;
