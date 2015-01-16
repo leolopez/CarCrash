@@ -21,7 +21,9 @@
     	    <script src="js/JSonStore/transactions.js"></script>
     	    <script src="js/JSonStore/find.js"></script>  
     	    <script src="js/perfil.js"></script> 
-    	     <script src="js/policy.js"></script>       	         	      			
+    	     <script src="js/policy.js"></script> 
+    	     <script src="js/medicalData.js"></script> 
+    	     <script src="js/mechanicData.js"></script>       	         	      			
     		<script src="https://maps.googleapis.com/maps/api/js" ></script>
     		<script type="text/javascript">
     		$(document).ready(function() {
@@ -347,10 +349,10 @@
     <h2 style="margin:0">Perfil</h2>
     <ul data-role="listview" data-theme="a" style="border-bottom-width: 2px; border-top-width:0;">
       
-      <li><a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Cuenta</a>
+      <li><a href="#perfil"   class="ui-btn ui-btn-icon-right ui-icon-carat-r">Cuenta</a>
 			</li>        		
       <li><a href="#poliza">Vehiculos/Polizas</a></li> 
-      <li>
+      <li> 
 			        			<a href="#DatosMedicos" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Datos Medicos</a>
 			        		</li>        
       <li>
@@ -525,7 +527,7 @@
     				<a href="#nav-panel3" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a href="#popupDialogMedicalData"  data-rel="popup" data-position-to="window"
-				 data-transition="pop"  class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
+				 data-transition="pop" onclick="saveUserMedicalData();"  class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			
     			<div role="main" class="ui-content">
@@ -538,7 +540,7 @@
     				Alergias 
     				<input  id="txtAlergics" type="text" /> 
     				Padecimientos 
-    				<input  id="txtPadec" type="text" />    				    				
+    				<input  id="txtClinicalConditions" type="text" />    				    				
     				</div>
     				<div data-role="popup" id="popupDialogMedicalData" data-dismissible="false" style="max-width:400px; margin-top: 0;">
 					<div data-role="header" data-theme="a">
@@ -648,7 +650,7 @@
     				<a href="#nav-panel5" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a href="#popupDialogMechanicData"  data-rel="popup" data-position-to="window"
-				 data-transition="pop"  class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
+				 data-transition="pop" onclick="saveMechanicData();" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			
     			<div role="main" class="ui-content">
@@ -723,7 +725,7 @@
 				 data-transition="pop"  class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true" class=" ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			<div id="backPerfilNav" data-role="header" data-tap-toggle="false" data-fullscreen="true" data-position="relative">
-        <a href=""  onclick="backPerfil();" class="ui-btn ui-btn-icon-left ui-icon-arrow-l ui-btn-icon-notext">&nbsp;</a>         
+        <a href=""   class="ui-btn ui-btn-icon-left ui-icon-arrow-l ui-btn-icon-notext">&nbsp;</a>         
     <h6></h6>
 </div>
     			<div role="main" class="ui-content">
@@ -783,7 +785,7 @@
       
       <li><a href="#perfil" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Cuenta</a>
 			</li>        		
-      <li><a href="#poliza">Vehiculos/Polizas</a></li> 
+      <li><a href="#poliza" >Vehiculos/Polizas</a></li> 
       <li>
 			        			<a href="#DatosMedicos" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Datos Medicos</a>
 			        		</li>        

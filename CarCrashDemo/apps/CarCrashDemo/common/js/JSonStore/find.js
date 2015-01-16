@@ -91,25 +91,102 @@ function initPolicyDataInfo(namep, firstnamep, lastnamep, cellPhonep,cityp,enter
 	}	
 
 	
-function  initPolicy(namep, firstnamep, lastnamep, cellPhonep,cityp,enterprisep){
+function initMedicalDataInfo(imssp, bloodTypep, alergicsp, clinicalConditionsp){
 	
-	 var collections = {
-	            poliza : {
-	            	 searchFields: {policy: 'string', serie: 'string', plates: 'string', vehicleType: 'string',
-	                	mark: 'string', submark: 'string',model: 'string',color: 'string',holder: 'string',
-	                	conductor: 'string'}
-	            } 
-	    };
+	var collectionName = 'MedicalData';    
+
+    var collections = {
+    		MedicalData : {
+                searchFields: {IMSS: 'string', bloodType: 'string', alergics: 'string', clinicalConditions: 'string'
+                	}
+            } 
+    }; 
 	    
 	WL.JSONStore.init(collections).then(function () {
-		var collectionName = 'poliza';
+		
 		var options = {
 				  // Returns a maximum of 1 documents, default no limit.
 				  limit: 1
 				};
-	return	WL.JSONStore.get(collectionName).findAll(options);
+		WL.JSONStore.get(collectionName).findAll(options).then(function (arrayResults) {			
+		if(arrayResults.length>0){
+			var v=	JSON.stringify(arrayResults).split("{");		 
+		var t=v[2].split(":");    
 		
-		
-	});
+		setMedicalData(t[0].replace('"','').replace('"',''),t[1].split(",")[0].replace('"','').replace('"',''),imssp, bloodTypep, alergicsp, clinicalConditionsp);
+		setMedicalData(t[1].split(",")[1].replace('"','').replace('"',''),t[2].split(",")[0].replace('"','').replace('"',''),imssp, bloodTypep, alergicsp, clinicalConditionsp);
+		setMedicalData(t[2].split(",")[1].replace('"','').replace('"',''),t[3].split(",")[0].replace('"','').replace('"',''),imssp, bloodTypep, alergicsp, clinicalConditionsp);
+		setMedicalData(t[3].split(",")[1].replace('"','').replace('"',''),t[4].split(",")[0].replace('"','').replace('"','').replace(']','').replace('}}',''),imssp, bloodTypep, alergicsp, clinicalConditionsp);
+		}
+		});
+	});	
+	}
+
+function setMedicalData(data,value,imssp, bloodTypep, alergicsp, clinicalConditionsp){
+	switch(data){
+	case "IMSS":			
+		imssp.val(value);
+	break;
+	case "bloodType":		
+		bloodTypep.val(value);
+		break;
+	case "alergics":
+		alergicsp.val(value);
+		break;
+	case "clinicalConditions":
+		clinicalConditionsp.val(value);
+		break;
+	};	
+}
+
+function initMechanicDataInfo(MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam){
 	
-	}	
+	var collectionName = 'MechanicData';    
+
+    var collections = {
+    		MechanicData : {
+                searchFields: {MechanicName: 'string',  MechanicFirstName: 'string', MechanicLastName: 'string', MechanicCellPhone: 'string',
+                	MechanicAddressParam: 'string'}
+            } 
+    };  
+	    
+	WL.JSONStore.init(collections).then(function () {
+		
+		var options = {
+				  // Returns a maximum of 1 documents, default no limit.
+				  limit: 1
+				};
+		WL.JSONStore.get(collectionName).findAll(options).then(function (arrayResults) {			
+		if(arrayResults.length>0){
+			var v=	JSON.stringify(arrayResults).split("{");		 
+		var t=v[2].split(":");    
+		
+		setMechanicData(t[0].replace('"','').replace('"',''),t[1].split(",")[0].replace('"','').replace('"',''),MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam);
+		setMechanicData(t[1].split(",")[1].replace('"','').replace('"',''),t[2].split(",")[0].replace('"','').replace('"',''),MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam);
+		setMechanicData(t[2].split(",")[1].replace('"','').replace('"',''),t[3].split(",")[0].replace('"','').replace('"',''),MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam);
+		setMechanicData(t[3].split(",")[1].replace('"','').replace('"',''),t[4].split(",")[0].replace('"','').replace('"',''),MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam);		
+		setMechanicData(t[4].split(",")[1].replace('"','').replace('"',''),t[5].split(",")[0].replace('"','').replace('"','').replace(']','').replace('}}',''),MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam);
+		}
+		});
+	});	
+	}
+
+function setMechanicData(data,value,MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam){
+	switch(data){
+	case "MechanicName":			
+		MechanicNameParam.val(value);
+	break;
+	case "MechanicFirstName":		
+		MechanicFirstNameParam.val(value);
+		break;
+	case "MechanicLastName":
+		MechanicLastNameParam.val(value);
+		break;
+	case "MechanicCellPhone":
+		MechanicCellPhoneParam.val(value);
+		break;
+		case "MechanicAddress":
+			MechanicAddressParam.val(value);
+			break;
+	};	
+}

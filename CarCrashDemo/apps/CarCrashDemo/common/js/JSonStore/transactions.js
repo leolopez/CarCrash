@@ -135,13 +135,13 @@ function setDataToPolicyTransaction(policyp, seriep, platesp, vehicleTypep,markp
 
 }
 
-function setMechanicDataTransaction(namep, firstnamep, lastnamep, cellPhonep,cityp,enterprisep){
-	var collectionName = 'perfil';    
+function setMechanicDataTransaction(MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam){
+	var collectionName = 'MechanicData';    
 
     	    var collections = {
-    	            perfil : {
-    	                searchFields: {name: 'string', firstname: 'string', lastname: 'string', cellPhone: 'string',
-    	                	city: 'string', enterprise: 'string'}
+    	    		MechanicData : {
+    	                searchFields: {MechanicName: 'string',  MechanicFirstName: 'string', MechanicLastName: 'string', MechanicCellPhone: 'string',
+    	                	MechanicAddressParam: 'string'}
     	            } 
     	    };   
     	    
@@ -163,8 +163,8 @@ function setMechanicDataTransaction(namep, firstnamep, lastnamep, cellPhonep,cit
 		
 		// Data to add, you probably want to get
 		// this data from a network call (e.g. Adapter).
-		var data = [{name: namep.val().trim(), firstname: firstnamep.val().trim(), lastname: lastnamep.val().trim(), cellPhone: cellPhonep.val().trim(),
-        	city: cityp.val().trim(), enterprise: enterprisep.val().trim()}];
+		var data = [{MechanicName: MechanicNameParam.val().trim(), MechanicFirstName: MechanicFirstNameParam.val().trim(), MechanicLastName: MechanicLastNameParam.val().trim(), MechanicCellPhone: MechanicCellPhoneParam.val().trim(),
+			MechanicAddress: MechanicAddressParam.val().trim()}];
 
 		// Optional options for add.
 		var addOptions = {
@@ -197,13 +197,13 @@ function setMechanicDataTransaction(namep, firstnamep, lastnamep, cellPhonep,cit
 
 }
 
-function setMedicalDataTransaction(namep, firstnamep, lastnamep, cellPhonep,cityp,enterprisep){
-	var collectionName = 'perfil';    
+function setMedicalDataTransaction(imssp, bloodTypep, alergicsp, clinicalConditionsp){
+	var collectionName = 'MedicalData';    
 
     	    var collections = {
-    	            perfil : {
-    	                searchFields: {name: 'string', firstname: 'string', lastname: 'string', cellPhone: 'string',
-    	                	city: 'string', enterprise: 'string'}
+    	    		MedicalData : {
+    	                searchFields: {IMSS: 'string', bloodType: 'string', alergics: 'string', clinicalConditions: 'string'
+    	                	}
     	            } 
     	    };   
     	    
@@ -225,8 +225,8 @@ function setMedicalDataTransaction(namep, firstnamep, lastnamep, cellPhonep,city
 		
 		// Data to add, you probably want to get
 		// this data from a network call (e.g. Adapter).
-		var data = [{name: namep.val().trim(), firstname: firstnamep.val().trim(), lastname: lastnamep.val().trim(), cellPhone: cellPhonep.val().trim(),
-        	city: cityp.val().trim(), enterprise: enterprisep.val().trim()}];
+		var data = [{IMSS: imssp.val().trim(), bloodType: bloodTypep.val().trim(), alergics: alergicsp.val().trim(), clinicalConditions: clinicalConditionsp.val().trim()
+        	}];
 
 		// Optional options for add.
 		var addOptions = {
@@ -242,10 +242,6 @@ function setMedicalDataTransaction(namep, firstnamep, lastnamep, cellPhonep,city
 
 		return WL.JSONStore.commitTransaction();
 	})
-	.then(function () {
-     	
-       
-     })
 	.fail(function (errorObject) {		
 		// Handle failure for any of the previous JSONStore operation.
 		//(startTransaction, add, remove).

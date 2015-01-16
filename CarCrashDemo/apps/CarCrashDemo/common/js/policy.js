@@ -24,9 +24,7 @@
 			} 
 			}
 		
-		function policiesAlert(){
-			
-			
+		function policiesAlert(){						
 				alert('La poliza 3GCEC28K4WG132181 esta por caducar.');
 		}
 		
@@ -42,22 +40,7 @@
 		function backVehicleCont(){
 			$("#policyCont").hide();
 		$("#vehicleCont").show();		
-		}
-		function backPerfilCountries(){
-			$("#listCountries").hide();
-			$("#perfilCont").show();		
-		}
-		
-		function backPerfilCities(){
-			$("#listCities").hide();
-			$("#listCountries").show();
-		}						
-		
-		var cityData;
-		function clearCities(city){
-			cityData=city;	
-			$("#lblCitySelected").text(""+$(cityData).text());			
-		}
+		}										
 		
 		function initMarks(){
 		$("#vehicleCont").hide();
@@ -107,9 +90,7 @@
 			    item2.remove();
 			   
 			    $("#listPolicy").listview("refresh");			
-		}		
-		
-		
+		}					
 		
 		function markSelected(){			
 			$("#vehicleCont").show();
@@ -155,13 +136,7 @@
 	        
 		}
 		
-		function citySelected(){						
-			$("#perfilCont").show();
-			$("#listCities").hide();
-			$("#listCountries").hide();					
-			$("#searchCity").val(""+$(cityData).text());
-			policyNavigation=0;
-		}
+	
 		function backPerfilMarks(){
 			$("#listMarks").hide();
 			$("#vehicleCont").show();
