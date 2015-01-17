@@ -9,10 +9,14 @@
 			$("#vehicleCont").hide();
 			policyNavigation=0;			   
 			}
+		var policy;
+		var policyDate;
+		var aseg;
+		
 		function initVehicle(){			  	
-		var policy=	 $("#txtPolicy");
-		var policyDate=	 $("#txtPolicyDate");
-		var aseg=$('#selectAseg :selected');
+	 policy=	 $("#txtPolicyNo");
+		 policyDate=	 $("#txtPolicyDate");
+		 aseg=$('#selectInsurance :selected');
 		if(policyDate.val().trim().length>0&&policy.val().trim().length>0&&aseg.val()!="0"){ 
 			$("#listMarks").hide();
 			$("#listSubMarks").hide();
@@ -53,8 +57,7 @@
 			$("#listSubMarks").show();			
 			markData=mark;
 			policyNavigation=3;
-		}
-		
+		}		
 		         
 		var submarkData;
 		function clearSubMarks(submark){
@@ -105,7 +108,7 @@
 		});	
 		
 		function savePolicy(){						
-		var policy=	$("#txtPolicy");
+			
 		var serie=	$("#txtSeries");
 		var plates=	$("#txtPlates");
 		var vehicleType=$("#txtVehicleType");
@@ -113,18 +116,16 @@
 		var subMark=$("#searchSubMark");
 		var model=$("#txtModel");
 		var color=$("#txtColor");
-		var holder=$("#txtHolder");
-		var conductor=$("#txtConductor");
+		var holder=$("#txtHolder");		
 		
 			 var newAmount = "2";
 
-		    if(newAmount != '') {
-		    	setDataToPolicyTransaction(policy,serie,plates,vehicleType,mark,subMark,model,color,holder,conductor);
+		    if(newAmount != '') {		    	
+		    	setPolicyVehicleDataTransaction(policy,policyDate,aseg,plates,serie,vehicleType,mark,subMark,model,color,color,holder);
 		    	addPolicyToList(serie);		     
 		    } else {
 		       
-		    }
-		    
+		    }		    
 		   
 		}
 		function addPolicyToList(serie){

@@ -255,3 +255,67 @@ function setMedicalDataTransaction(imssp, bloodTypep, alergicsp, clinicalConditi
 
 }
 
+function setPolicyVehicleDataTransaction(policyNoParam,
+		policyDateParam, insuranceParam, platesParam,serieParam,vehicleTypeParam,markParam,
+subMarkParam,modelParam,colorParam, carPictureParam,holderParam){
+	
+	var collectionName = 'PolicyVehicle';    
+
+    	    var collections = {
+    	    		PolicyVehicle : {
+    	                searchFields: {PolicyNo: 'string', PolicyDate: 'string', insurance: 'string', Plates: 'string', Serie: 'string'
+    	                	, VehicleType: 'string', Mark: 'string', SubMark: 'string', Model: 'string', Color: 'string'
+    	                		, carPicture: 'string', Holder: 'string'
+    	                	}
+    	            } 
+    	    };   
+    	    
+    	   
+	  
+     WL.JSONStore.init(collections)	 	  
+	.then(function () {
+
+		return WL.JSONStore.startTransaction();
+	})
+
+	.then(function () {
+
+		// Handle startTransaction success.
+		// You can call every JSONStore API method except:
+		// init, destroy, removeCollection, and closeAll.
+		
+		// Data to add, you probably want to get
+		// this data from a network call (e.g. Adapter).
+		var data = [{PolicyNo: policyNoParam.val().trim(), PolicyDate: policyDateParam.val().trim(), insurance: insuranceParam.val().trim(),
+			Plates: platesParam.val().trim(),Serie: serieParam.val().trim(),VehicleType: vehicleTypeParam.val().trim(),Mark: markParam.val().trim(),
+			SubMark: subMarkParam.val().trim(),Model: modelParam.val().trim(),Color: colorParam.val().trim(),carPicture: carPictureParam.val().trim(),
+			Holder: holderParam.val().trim()
+        	}];
+
+		// Optional options for add.
+		var addOptions = {
+
+				// Mark data as dirty (true = yes, false = no), default true.
+				markDirty: true
+		};
+
+		// Get an accessor to the people collection and add data.
+		return WL.JSONStore.get(collectionName).add(data,addOptions);
+	})
+	.then(function () {
+
+		return WL.JSONStore.commitTransaction();
+	})
+	.fail(function (errorObject) {		
+		// Handle failure for any of the previous JSONStore operation.
+		//(startTransaction, add, remove).
+
+		WL.JSONStore.rollbackTransaction()
+
+		.always(function () {
+			
+		});
+	});
+
+}
+

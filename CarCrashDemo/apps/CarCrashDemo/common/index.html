@@ -30,7 +30,7 @@
     	        getLocation();
     	        $('a').attr('data-transition','slide');    	        
     	      });      
-    	       	        	      
+    	      	        	      
     		</script> 
     		<script>window.$ = window.jQuery = WLJQ;</script> 
     		
@@ -732,7 +732,7 @@
     			<h3 align="center">Registros.</h3> 
     				    				    			    				    			  				   			    				    				    			
     			<div >
-    			<ul data-role="listview" data-inset="true">
+    			<ul id="listPolicy" data-role="listview" data-inset="true">
     <li><a href="#">
         <img height="100%" src="http://www.euik.com/wp-content/uploads/2012/02/acura-tsx.jpg">
     <h2>Acura</h2>
@@ -812,7 +812,7 @@
     				<a href="#nav-panel9" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-left ui-btn-icon-notext"></a>
     				<h1 style="padding:0 0 0 0;"><a href="#incidente" class="ui-btn ui-corner-all ui-icon-alert-red ui-btn-icon-notext"></a></h1>
     				<a    href="#popupDialogPolicy2"  data-rel="popup" data-position-to="window"
-				 data-transition="pop"  class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true" class=" ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
+				 data-transition="pop" onclick="savePolicy();"  class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true" class=" ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
     			<div id="backPerfilNav" data-role="header" data-tap-toggle="false" data-fullscreen="true" data-position="relative">
         <a href=""  onclick="backPolicy();" class="ui-btn ui-btn-icon-left ui-icon-arrow-l ui-btn-icon-notext">&nbsp;</a>         
@@ -824,12 +824,12 @@
     			<h3 align="center">Polizas.</h3>   				   			    				    				
 <div style="margin-top:0 margin-bottom: 0;" class="ui-body ui-body-a ui-corner-all">	    				    				
     				No. Poliza     				
-    				<input  id="txtPolicy"  type="text"/>     				
+    				<input  id="txtPolicyNo"  type="text"/>     				
     				Vencimiento Poliza			
     				<input  id="txtPolicyDate"  type="text"/>     				
     				Aseguradora    				    				
     				<div class="ui-field-contain" style="margin-top:0 margin-bottom: 0;">
-							<select name="selectAseg" id="selectAseg">
+							<select name="selectInsurance" id="selectInsurance">
 								<option value="0" selected="selected">Seleccionar</option>
 								<option value="1">Mapfre</option>
 								<option value="2">AXXA</option>

@@ -190,3 +190,51 @@ function setMechanicData(data,value,MechanicNameParam, MechanicFirstNameParam, M
 			break;
 	};	
 }
+
+
+function initPolicyVehicleDataInfo(){
+	
+	var collectionName = 'PolicyVehicle';    
+
+	  var collections = {
+	    		PolicyVehicle : {
+	                searchFields: {PolicyNo: 'string', PolicyDate: 'string', insurance: 'string', Plates: 'string', Serie: 'string'
+	                	, VehicleType: 'string', Mark: 'string', SubMark: 'string', Model: 'string', Color: 'string'
+	                		, carPicture: 'string', Holder: 'string'
+	                	}
+	            } 
+	    };   
+	    
+	WL.JSONStore.init(collections).then(function () {
+		
+		
+		WL.JSONStore.get(collectionName).findAll().then(function (arrayResults) {			
+			 WL.Logger.debug("Retrieve success" +  JSON.stringify(arrayResults));
+			if(arrayResults.length>0){
+			var v=	JSON.stringify(arrayResults).split("{");		 
+		var t=v[2].split(":");    
+		 
+		}
+		});
+	});	
+	}
+
+function setMechanicData(data,value,MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam){
+	switch(data){
+	case "MechanicName":			
+		MechanicNameParam.val(value);
+	break;
+	case "MechanicFirstName":		
+		MechanicFirstNameParam.val(value);
+		break;
+	case "MechanicLastName":
+		MechanicLastNameParam.val(value);
+		break;
+	case "MechanicCellPhone":
+		MechanicCellPhoneParam.val(value);
+		break;
+		case "MechanicAddress":
+			MechanicAddressParam.val(value);
+			break;
+	};	
+}
