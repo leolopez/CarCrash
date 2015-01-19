@@ -76,7 +76,7 @@
 			  listitem = $(v).parent( "li" );				
 			selectedPolizaData=$(listitem).text();
 			
-			$("#lblPolicySelected").text(""+$(listitem).text());
+			//$("#lblPolicySelected").text(""+$(listitem).text());
 		}		
 				
 		function policyDeleted(){			
