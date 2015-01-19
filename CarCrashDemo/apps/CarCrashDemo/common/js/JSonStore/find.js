@@ -205,36 +205,18 @@ function initPolicyVehicleDataInfo(){
 	            } 
 	    };   
 	    
-	WL.JSONStore.init(collections).then(function () {
-		
+	WL.JSONStore.init(collections).then(function () {		
 		
 		WL.JSONStore.get(collectionName).findAll().then(function (arrayResults) {			
 			 WL.Logger.debug("Retrieve success" +  JSON.stringify(arrayResults));
 			if(arrayResults.length>0){
-			var v=	JSON.stringify(arrayResults).split("{");		 
-		var t=v[2].split(":");    
-		 
-		}
+				var index;
+				for (index = 0; index < arrayResults.length; ++index) {				   
+					
+					initPolicyToList(arrayResults[index].json.Serie,arrayResults[index].json.insurance,
+							arrayResults[index].json.PolicyDate);
+				}														
+		} 
 		});
 	});	
 	}
-
-function setMechanicData(data,value,MechanicNameParam, MechanicFirstNameParam, MechanicLastNameParam, MechanicCellPhoneParam,MechanicAddressParam){
-	switch(data){
-	case "MechanicName":			
-		MechanicNameParam.val(value);
-	break;
-	case "MechanicFirstName":		
-		MechanicFirstNameParam.val(value);
-		break;
-	case "MechanicLastName":
-		MechanicLastNameParam.val(value);
-		break;
-	case "MechanicCellPhone":
-		MechanicCellPhoneParam.val(value);
-		break;
-		case "MechanicAddress":
-			MechanicAddressParam.val(value);
-			break;
-	};	
-}

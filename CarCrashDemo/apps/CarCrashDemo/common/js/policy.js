@@ -69,30 +69,21 @@
 		function addPolicy(){
 			var value ="sss";
 			var listItem = "<li>" + value + "</li>";
-			$("#listPolicy").append(listItem);
-			
-		}
-		function initSelectedPolicyPage(v){
-			var  listitem = $(v).parent( "li" );	
-			
-			selectedPolizaData=$(listitem).text();
-			alert(selectedPolizaData);
-			$("#perfilCont").hide();
-			$("#policyCont").show();
-			policyNavigation=0;
-			
+			$("#listPolicy").append(listItem);			
 		}
 		 var listitem;
-		function deletePolicy(v){
-			  listitem = $(v).parent( "li" );
-			  $("#lblPolicySelected").text(""+$(listitem).text());	
-		}
-		
+		function initSelectedPolicy(v){
+			  listitem = $(v).parent( "li" );				
+			selectedPolizaData=$(listitem).text();
+			
+			$("#lblPolicySelected").text(""+$(listitem).text());
+		}		
+				
 		function policyDeleted(){			
 			 var item2 = $("#listPolicy").find(listitem);
-			    item2.remove();
-			   
-			    $("#listPolicy").listview("refresh");			
+			    item2.remove();			    	
+			    ondeletedUpdatePolicy();
+			    
 		}					
 		
 		function markSelected(){			
@@ -102,10 +93,14 @@
 			$("#searchMark").val(""+$(markData).html());
 			policyNavigation=0;
 		}		
-		$(document).on('pagebeforeshow','#AgregarPoliza',function(e,data){    
-		    
-		initPolicyPage();	 				  
+		$(document).on('pagebeforeshow','#AgregarPoliza',function(e,data){    			    
+		initPolicyPage();		
 		});	
+		
+		$(document).on('pagebeforeshow','#poliza',function(e,data){    			    
+			initPolicyVehicleDataInfo();		
+			});	
+		
 		
 		function savePolicy(){						
 			
@@ -122,22 +117,34 @@
 
 		    if(newAmount != '') {		    	
 		    	setPolicyVehicleDataTransaction(policy,policyDate,aseg,plates,serie,vehicleType,mark,subMark,model,color,color,holder);
-		    	addPolicyToList(serie);		     
+		    	 addPolicyToList(serie.val(),aseg.val(),policyDate.val());	     
 		    } else {
 		       
 		    }		    
 		   
 		}
-		function addPolicyToList(serie){
-			
-			$('#listPolicy').append('<li class="ui-li-has-alt"><a href="" data-transition="slide" class="ui-btn" onclick="initPolicy();">'+serie.val().trim()+'</a>'+
-	        		 '<a href="#popupDialogEliminar" class="ui-icon-delete-red ui-btn ui-btn-icon-notext ui-icon-delete ui-btn-d" '+
-	        		 ' aria-haspopup="true" aria-owns="popupDialogEliminar"  aria-expanded="false" onclick="deletePolicy(this);" '+
-	        		 ' data-rel="popup" data-position-to="window" data-transition="pop" ></a></li>').listview('refresh');
+		function addPolicyToList(name,insurance,policyDate){			
+			initPolicyToList(name,insurance,policyDate);
 	        
 		}
+function initPolicyToList(name,insurance,policyDate){
+			
+			$('#listPolicy').append('<li class="ui-li-has-thumb ui-last-child" ><a data-transition="slide" onclick="initSelectedPolicy(this);" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href=""> ' +
+			        '<img height="100%" src="http://i.ndtvimg.com/auto/makers/10/63/ferrari-458-italia-01.jpg"> '+
+				    '<h2>'+name.trim()+'</h2>'+
+				    '<p>'+insurance.trim()+'</p>'+
+				    '<p>'+policyDate.trim()+'</p>'+
+				   ' </a>'+
+				   ' </li>');		
+		}
 		
-	
+	function ondeletedUpdatePolicy(){
+		try{
+			$('#listPolicy').listview('refresh');	        			
+		}catch(err){
+			
+		}
+	}
 		function backPerfilMarks(){
 			$("#listMarks").hide();
 			$("#vehicleCont").show();
@@ -165,8 +172,8 @@
 			break;
 			case 3:			 	
 				backPerfilSubMarks();
-				policyNavigation=2;
 			break;
+				policyNavigation=2;
 			}
 		}
 		

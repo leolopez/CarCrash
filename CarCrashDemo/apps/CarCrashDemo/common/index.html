@@ -30,7 +30,7 @@
     	        getLocation();
     	        $('a').attr('data-transition','slide');    	        
     	      });      
-    	      	        	      
+    	       	        	      
     		</script> 
     		<script>window.$ = window.jQuery = WLJQ;</script> 
     		
@@ -446,19 +446,7 @@
 						<a href=""  onclick="citySelected();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">OK</a>
 						</div>
 				</div>
-				<div data-role="popup" id="popupDialogEliminar" data-dismissible="false" style="max-width:400px; margin-top: 0;">
-					<div data-role="header" data-theme="a">
-						<h1>Eliminar?</h1>
-					</div>
-					<div role="main" class="ui-content">
-						<h3 class="ui-title">Desea eliminar la poliza seleccionada?</h3>
-						<p>Datos:</p>
-						<p><label id="lblPolicySelected" ></label> </p>
-						<a href="#" id="cancelPolicy" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href="#popupDialogPolicyDel"  data-rel="back" data-position-to="window"
-				 data-transition="pop" id="yesPolicy" onclick="policyDeleted();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" >OK</a>
-						</div>
-				</div>
+				
 				<div data-role="popup" id="popupDialogPolicy" data-dismissible="false" style="max-width:400px; margin-top: 0;">
 					<div data-role="header" data-theme="a">
 						<h1>Informacion</h1>
@@ -724,30 +712,27 @@
     				<a    href="#popupDialogPolicy"  data-rel="popup" data-position-to="window"
 				 data-transition="pop"  class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true" class=" ui-btn ui-corner-all ui-icon-check ui-btn-icon-right ui-btn-icon-notext"></a>		
     			</div>
-    			<div id="backPerfilNav" data-role="header" data-tap-toggle="false" data-fullscreen="true" data-position="relative">
-        <a href=""   class="ui-btn ui-btn-icon-left ui-icon-arrow-l ui-btn-icon-notext">&nbsp;</a>         
-    <h6></h6>
-</div>
+    			
     			<div role="main" class="ui-content">
     			<h3 align="center">Registros.</h3> 
     				    				    			    				    			  				   			    				    				    			
     			<div >
     			<ul id="listPolicy" data-role="listview" data-inset="true">
-    <li><a href="#">
+    <li><a href="#" onclick="initSelectedPolicy(this);">
         <img height="100%" src="http://www.euik.com/wp-content/uploads/2012/02/acura-tsx.jpg">
     <h2>Acura</h2>
     <p>AXXA</p>
     <p>vencimiento 15/12/2015</p>
     </a>
     </li>
-    <li><a href="#">
-        <img height="100%" src="http://www.cochesp.com/imagenes/2014/10/Ford-Mustang-1.jpg">
+    <li><a href="#" onclick="initSelectedPolicy(this);">
+         <img height="100%" src="http://www.cochesp.com/imagenes/2014/10/Ford-Mustang-1.jpg">
     <h2>Mustang</h2>
     <p>Mapfre</p>
      <p>vencimiento 15/12/2016</p>
     </a>
     </li>
-    <li><a href=""> 
+    <li ><a href="" onclick="initSelectedPolicy(this);">  
         <img height="100%" src="http://i.ndtvimg.com/auto/makers/10/63/ferrari-458-italia-01.jpg">
     <h2>Ferrari</h2>
     <p>Mapfre</p>
@@ -755,16 +740,27 @@
     </a>
     </li>
 </ul>
-</div>    			    			
-				
-				</div>
-				
+</div>  
+ 			    							
+				</div>				
+<div data-role="popup" id="popupDialogEliminar" data-dismissible="false" style="max-width:400px; margin-top: 0;">
+					<div data-role="header" data-theme="a">
+						<h1>Eliminar?</h1>
+					</div>
+					<div role="main" class="ui-content">
+						<h3 class="ui-title">Desea eliminar el registro seleccionado?</h3>
+						<p></p>
+						<p><label id="lblPolicySelected" ></label> </p>
+						<a href="#" id="cancelPolicy" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+						<a href=""  data-rel="back" id="yesPolicy" onclick="" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" >OK</a>
+						</div>
+				</div> 
     			<div data-tap-toggle="false" data-hide-during-focus="false" data-role="footer" data-position="fixed" data-fullscreen="true" class="bottomFooter">
 	   				<div data-role="navbar" data-iconpos="top">
-	   					<ul>
-	   					
+	   					<ul>	   					
 							<li><a href="#AgregarPoliza" data-icon="plus">Nuevo</a></li>
-							<li><a href="#" onclick="alert('Desea proceder con la eliminacion del registro seleccionado?');" data-icon="delete">Eliminar</a></li>
+							<li><a href="#popupDialogEliminar"  data-rel="popup" data-position-to="window"
+				 data-transition="pop" id="yesPolicy"  data-icon="delete">Eliminar</a></li>
 						</ul>
 					</div><!-- /navbar -->
 	   			</div>	
@@ -911,21 +907,8 @@
 						<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
 						<a href=""  onclick="markSelected();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">OK</a>
 						</div>
-				</div>
-    			    			
-				<div data-role="popup" id="popupDialogEliminar" data-dismissible="false" style="max-width:400px; margin-top: 0;">
-					<div data-role="header" data-theme="a">
-						<h1>Eliminar?</h1>
-					</div>
-					<div role="main" class="ui-content">
-						<h3 class="ui-title">Desea eliminar la poliza seleccionada?</h3>
-						<p>Datos:</p>
-						<p><label id="lblPolicySelected" ></label> </p>
-						<a href="#" id="cancelPolicy" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-						<a href="#popupDialogPolicyDel"  data-rel="back" data-position-to="window"
-				 data-transition="pop" id="yesPolicy" onclick="policyDeleted();" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" >OK</a>
-						</div>
-				</div>
+				</div>    			    			
+				
 				<div data-role="popup" id="popupDialogPolicy2" data-dismissible="false" style="max-width:400px; margin-top: 0;">
 					<div data-role="header" data-theme="a">
 						<h1>Informacion</h1>
