@@ -1,3 +1,8 @@
+/*
+ * This file contains script to get lattitude and longitude
+ * 
+ */
+
 var currentLat = 0;
 var currentLng = 0;
 function setMap(pLat, pLng)
@@ -10,18 +15,18 @@ function setMap(pLat, pLng)
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+    var bounds = new google.maps.LatLngBounds();
+    bounds.extend(myLatlng);
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map
-    });    			
+    });
 }
 
-/*
- * This file contains script to get lattitude and longitude
- * 
- */
 //A button click will call this function
-function getLocation() {
+function getLocation() {	
+	var mapHeight = $(document).height() / 2;
+	$('#map-canvas').css('height', mapHeight + 'px');
     navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });
 }
 
